@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Zem-Com</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- Flatpickr CSS for modern date picker -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <style>
+          /* Optional: Custom style to match your form */
+          .flatpickr-calendar {
+            font-family: 'DM Sans', Arial, sans-serif;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+          }
+          .flatpickr-day.today, .flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay, .flatpickr-day.disabled {
+            background: #eee !important;
+            color: #bbb !important;
+            cursor: not-allowed;
+          }
+          .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+            background: #81B29A !important;
+            color: #fff !important;
+          }
+        </style>
+    </head>
+    
+    <body>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">                
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Zem-Com">
+                        <span class="navbar-brand-text" >
+                            Zem-Com
+                            <small></small>
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Domov</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="wellness.html">Wellness</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="pobyt.html">Pobyt</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="galeria.html">Galeria</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="kontakt.html">Kontakt</a>
+                            </li>
+
+                        </ul>
+
+                        
+                    </div>
+                </div>
+            </nav>
+
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay"></div>
+
+                <!--TOTO JE TEN SQUIGLI VRCH-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+            
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <h2 class="text-white">Vitajte v</h2>
+
+                            <h1 class="cd-headline fade-words text-white mb-4 pb-2">
+                                <span>Zem -</span>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Zen</b>
+                                    
+                                </span>
+                            </h1>
+
+
+                            <!--<div class="custom-btn-group">
+                                <a href="#section_2" class="btn custom-btn smoothscroll me-3">Our Story</a>
+
+                                <a href="#section_3" class="link smoothscroll">Become a member</a>
+                            </div>-->
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/UYVAYaz5xLM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+            </section>
+
+
+<section class="about-section section-padding" id="section_2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12 text-center">
+      </div>
+
+      <!-- Text naľavo -->
+      <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0 text-lg-start text-center px-3 px-md-5">
+        <br><br><br>
+        <h3 class="mb-3">Wellness centrum</h3>
+        <p><strong>Zem-Zen</strong>, je privátne wellness centrum, kde si v úplnom súkromí môžete dopriať zaslúžený oddych. Nájdete u nás štyri druhy sáun – infra, bylinnú, parnú a fínsku, vírivku a oddychovú zónu.</p>
+        <p>Ponúkame viacero tematických balíčkov, či už túžite po romantike, regenerácii alebo chvíľke pokoja s rodinou či priateľmi.</p>
+      </div>
+
+      <!-- Nadpis pre MOBIL -->
+      <div class="col-12 text-center d-block d-md-none mb-1">
+        <h4>Čo ponúkame</h4>
+      </div>
+
+      <!-- Obrázky vpravo -->
+      <div class="col-lg-7 col-12">
+        <div class="row">
+          <!-- Dva obrázky hore -->
+          <div class="col-md-6 col-12 mb-2">
+            <div class="member-block">
+              <div class="member-block-image-wrap">
+                <img src="images/pic8.jpeg" class="member-block-image img-fluid" alt="Vírivka s hydromasážnymi tryskami">
+                <div class="hover-text">
+                  <p class="text head fw-bold">Vírivka s hydromasážnymi tryskami</p>
+                  <span>Naša vírivka vám poskytne dokonalý relax v teplých bublinách a príjemných hydromasážnych tryskách, ktoré uvoľnia celé telo, zmiernia stres a zlepšujú cirkuláciu krvi.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-12 mb-2">
+            <div class="member-block">
+              <div class="member-block-image-wrap">
+                <img src="images/pic9.jpeg" class="member-block-image img-fluid" alt="Sauna">
+                <div class="hover-text">
+                  <p class="text head fw-bold">Sauny</p>
+                  <span>Vyberte si z našich rôznych typov sáun, podľa Vašej potreby. Bylinková/parná sauna je ideálna na uvoľnenie dýchacích ciest, fínska sauna pomáha pri regenerácii svalov a infračervená sauna podporuje detoxikáciu organizmu.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nadpis pre POČÍTAČ -->
+          <div class="col-12 text-center d-none d-md-block mb-0" style="margin-top: 0 !important;">
+            <h4>Čo ponúkame</h4>
+          </div>
+
+          <!-- Jeden obrázok dole -->
+          <div class="col-md-12 col-12">
+            <div class="member-block">
+              <div class="member-block-image-wrap">
+                <img src="images/pic10.jpeg" class="member-block-image img-fluid" alt="" style="object-fit: cover; object-position: bottom; height: 350px; width: 100%;">
+                <div class="hover-text">
+                  <p class="text head fw-bold">Oddychová zóna</p>
+                  <span>Naša oddychová zóna je navrhnutá pre maximálny komfort. Je vybavená ležadlami aj pohodlnými sedačkami s nastaviteľným sklonom, pričom jemné osvetlenie a tiché prostredie vytvárajú ideálne podmienky na oddych a uvoľnenie.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+            <section class="section-bg-image">
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+                        <!--NAJSMUTNEJŠIA VEC ČO SOM KEDY UROBIL XDDDDDD-->
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+
+                    </div>
+                </div>
+
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+            </section>
+
+
+<section class="membership-section section-padding" id="section_3">
+  <div class="container">
+    <div class="row">
+
+      <!-- Text napravo -->
+     <div class="col-lg-5 col-12 mb-4 mb-lg-0 text-lg-start text-center ps-lg-5 pe-lg-5 px-3 order-1 order-lg-2">
+        <br><br><br><br>
+        <h3 class="mb-3">Vyberte si svoj relax</h3>
+        <p>Pozri si našu ponuku a nájdi ten pravý relax – presne podľa seba.
+          Naše balíčky sú navrhnuté tak, aby ti poskytli maximálny komfort – či už túžiš po luxusnom rande, regenerácii po náročnom dni, alebo len po tichu a teple bez rušivých vplyvov.</p>
+        <p>Stačí si vybrať a <strong style="color: #C10001;">nechať sa rozmaznávať</strong>.</p>
+      </div>
+
+      <!-- Nadpis pre MOBIL pod textom, pred obrázkami -->
+      <div class="col-12 text-center d-block d-md-none mb-2 order-2">
+        <h4>Zem-Zen Balíčky</h4>
+      </div>
+
+      <!-- Obrázky naľavo -->
+      <div class="col-lg-7 col-12 order-2 order-lg-1">
+        <div class="row">
+          <!-- Klasik -->
+          <div class="col-md-6 col-12 mb-2">
+            <div class="member-block">
+              <div class="member-block-image-wrap">
+                <img src="images/klasik.png" class="member-block-image img-fluid" alt="Klasik">
+                <div class="hover-text">
+                  <p class="text head fw-bold">Klasik</p>
+                  <span><em>Ideálny pre každého, kto si chce v pokoji oddýchnuť a načerpať novú energiu.</em><br><br>
+                    Balík Klasik zahŕňa úplné súkromie, vírivku, 2 druhy sáun (fínsku a infra), oddychovú zónu a vlastnú hudbu.</span>
+                </div>
+                <div class="price">15€</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exkluzív -->
+          <div class="col-md-6 col-12 mb-2">
+            <div class="member-block">
+              <div class="member-block-image-wrap">
+                <img src="images/exklusive.png" class="member-block-image img-fluid" alt="Exkluzív">
+                <div class="hover-text">
+                  <p class="text head fw-bold">Exkluzív</p>
+                  <span><em>Vhodný pre tých, ktorí si radi doprajú niečo navyše a chcú sa nechať rozmaznávať.</em><br><br>
+                    Balík Exkluzív obsahuje všetko z balíka Klasik, doplnené o šampanské (alko alebo nealko) a bonboniéru pre dokonalý zážitok.</span>
+                </div>
+              <div class="price">25€</div>
+              </div>
+            </div>
+          </div>
+          <!-- Nadpis pre POČÍTAČ -->
+          <div class="col-12 text-center d-none d-md-block mb-2">
+            <h4>Zem-Zen Balíčky</h4>
+          </div>
+          <!-- Romantika -->
+          <div class="col-md-12 col-12">
+            <div class="member-block">
+              <div class="member-block-image-wrap">
+                 <!-- Desktop obrázok -->
+                <img src="images/romantika.png" class="member-block-image img-fluid d-none d-md-block" alt="Romantika">
+                <!-- Mobilný obrázok -->
+                <img src="images/romantika_mobil.png" class="member-block-image img-fluid d-block d-md-none" alt="Romantika">
+                <div class="hover-text">
+                  <p class="text head fw-bold">Romantika</p>
+                  <span><em>Stvorený pre tých, čo si chcú dopriať viac luxusu a romantiky. Vhodné na výročia alebo výnimočné chvíle vo dvojici.</em><br><br>
+                    Všetko z balíka Exkluzív, obohatené o jemnú romantickú výzdobu a rôzne pochúťky. <br> Pre maximálne pohodlie je k dispozícii aj odvoz na/z wellness.</span>
+                </div>
+                 <div class="price">40€</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="booking-section section-bg section-padding" id="section_4">
+  <div class="container px-4">
+    <h2 class="text-center mb-5">Rezervujte si svoj wellness zážitok</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-10 col-12">
+        <form class="custom-form booking-form p-4 shadow-sm bg-white rounded" autocomplete="off">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="full-name" name="full-name" placeholder="Vaše meno" required>
+                <label for="full-name">Vaše meno</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Váš email" required>
+                <label for="email">Váš email</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telefón" required pattern="[0-9+ ]*">
+                <label for="phone">Telefón</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <select class="form-select" id="package" name="package" required>
+                  <option value="" disabled selected>Vyberte balíček</option>
+                  <option value="klasik">Klasik</option>
+                  <option value="exkluziv">Exkluzív</option>
+                  <option value="romantika">Romantika</option>
+                </select>
+                <label for="package">Balíček</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="date" name="date" required>
+                <label for="date">Dátum</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <select class="form-select" id="timeslot" name="timeslot" required>
+                  <option value="" disabled selected>Vyberte čas</option>
+                  <option value="14:30-16:30">14:30 – 16:30</option>
+                  <option value="17:00-19:00">17:00 – 19:00</option>
+                  <option value="19:00-21:00">19:30 – 21:30</option>
+                </select>
+                <label for="timeslot">Časový úsek</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="notes" name="notes" placeholder="Poznámka" style="height: 100px;"></textarea>
+                <label for="notes">Poznámka (nepovinné)</label>
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary px-5 py-2">Odoslať rezerváciu</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+            <section class="contact-section section-padding" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12">
+                            <form action="https://formsubmit.co/zem-zen@gacel.sk" method="POST" class="custom-form contact-form" role="form">
+                                <h2 class="mb-4 pb-2">Kontaktujte nás</h2>
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+                                            
+                                            <label for="floatingInput">Vaše meno</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-12"> 
+                                        <div class="form-floating">
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+                                            
+                                            <label for="floatingInput">vaša emailová adresa</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="message" name="message" placeholder="Describe message here"></textarea>
+                                            
+                                            <label for="floatingTextarea">Správa</label>
+                                        </div>
+
+                                        <button type="submit" class="form-control">Odoslať</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="contact-info mt-5">
+                                <div class="contact-info-item">
+                                    <div class="contact-info-body">
+                                        <strong>Dolný Kubín, Slovensko</strong>
+
+                                        <p class="mt-2 mb-1">
+                                            <a href="tel: +421901701011" class="contact-link">
+                                                +421
+                                                901 701 011
+                                            </a>
+                                        </p>
+
+                                        <p class="mb-0">
+                                            <a href="mailto:zem-zen@gacel.sk" class="contact-link">
+                                                zem-zen@gacel.sk
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div class="contact-info-footer">
+                                        <a href="https://maps.app.goo.gl/VVedfCsYFKrk4pay9" target="_blank" rel="noopener">Ako sa ku nám dostať?</a>
+                                    </div>
+                                </div>
+
+                                <img src="images/WorldMap.svg" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="">
+                            <span class="navbar-brand-text">
+                                Zem-Com
+                                <small></small>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Vyberte si termín</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span>Pon-Štv</span>
+                            14:30 - 20:30
+                        </p>
+
+                        <p class="d-flex me-lg-3">
+                            <span>Pia-Ned</span>
+                            14:00 - 22:30
+                        </p>
+                        <br>
+                        <p class="copyright-text">Copyright © 2025 Zem-Com</p>
+                    </div>
+
+                        <div class="col-lg-2 col-12 ms-auto">
+                            <ul class="social-icon mt-lg-5 mt-3 mb-4">
+                                <li class="social-icon-item">
+                                    <a href="https://www.instagram.com/zemzen_wellness/" class="social-icon-link bi-instagram" target="_blank" rel="noopener" title="Instagram"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a id="Setmore_button_iframe" href="https://zemzen.setmore.com" class="social-icon-link bi-calendar-event" target="_blank" rel="noopener" title="Online rezervácie"></a>
+                                 </li>
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/animated-headline.js"></script>
+        <script src="js/modernizr.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Flatpickr on the booking form date input
+        var dateInput = document.querySelector('#date');
+        if(dateInput) {
+          flatpickr(dateInput, {
+            minDate: new Date().fp_incr(1), // disables today and all past dates
+            dateFormat: 'Y-m-d',
+            disable: [
+              function(date) {
+                // Disable today and all past dates
+                var today = new Date();
+                today.setHours(0,0,0,0);
+                return date <= today;
+              }
+            ],
+            locale: {
+              firstDayOfWeek: 1,
+              weekdays: {
+                shorthand: ['Ne', 'Po', 'Ut', 'St', 'Št', 'Pi', 'So'],
+                longhand: ['Nedeľa', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota']
+              },
+              months: {
+                shorthand: ['Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+                longhand: ['Január', 'Február', 'Marec', 'Apríl', 'Máj', 'Jún', 'Júl', 'August', 'September', 'Október', 'November', 'December']
+              }
+            }
+          });
+        }
+      });
+    </script>
+<script 
+    id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
+</script>
+<style>
+  /* Fixná veľkosť kariet a medzery medzi nimi */
+  .testimonial {
+    min-height: 320px;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1.5rem;
+  }
+
+  .testimonial p.fst-italic {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 1.05em;
+  padding: 0 0.5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+  .testimonial .review-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+  }
+
+  .testimonial .stars {
+    margin-bottom: 0.1em;
+  }
+
+  .testimonial .review-name {
+    font-weight: 600;
+    font-size: 1.1em;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-inner .row {
+      justify-content: center;
+      gap: 24px;
+    }
+    .carousel-inner .col-md-4 {
+      flex: 0 0 320px;
+      max-width: 320px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  /* Medzera vpravo a vľavo pre carousel */
+  .events-section .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  /* Obal pre slider */
+.review-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
+  padding: 1rem 0;
+}
+
+/* Pás s recenziami */
+.review-track {
+  display: flex;
+  gap: 24px; /* Medzera medzi recenziami */
+  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
+  animation: scroll 20s linear infinite;
+}
+
+/* Každá recenzia */
+.testimonial {
+  flex: 0 0 320px; /* Fixná šírka recenzie */
+  max-width: 320px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background: #f3f1de;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Animácia pre nekonečný pohyb */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Zastavenie animácie pri hover */
+.review-slider:hover .review-track {
+  animation-play-state: paused;
+}
+
+#reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#reviews h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.review-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  background: #f3f1de;
+  padding: 1rem 0;
+}
+
+.review-track {
+  display: flex;
+  gap: 24px;
+  animation: scroll 20s linear infinite;
+}
+
+.testimonial {
+  flex: 0 0 320px;
+  max-width: 320px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.testimonial p {
+  margin-bottom: 1rem;
+}
+
+.testimonial .review-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial .stars {
+  margin-bottom: 0.5rem;
+}
+
+.testimonial .review-name {
+  font-weight: 600;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.review-slider:hover .review-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .review-slider {
+    padding: 1rem 0; /* Zmenšený padding pre mobilné zariadenia */
+  }
+
+  .review-track {
+    gap: 12px; /* Ešte menšia medzera medzi kartami na mobiloch */
+  }
+
+  .testimonial {
+    flex: 0 0 85%; /* Karty zaberú 85% šírky obrazovky */
+    max-width: 85%; /* Zabezpečí, že karty nebudú príliš široké */
+    min-height: 280px; /* Fixná výška pre rovnaké veľkosti kariet */
+    padding: 0.8rem; /* Zmenšený padding pre lepšie zobrazenie */
+  }
+
+  .testimonial p {
+    font-size: 0.85rem; /* Ešte menšie písmo pre text recenzií */
+  }
+
+  .testimonial .review-footer {
+    gap: 0.1em; /* Menšia medzera medzi hviezdičkami a menom */
+  }
+
+  #reviews h2 {
+    font-size: 1.4rem; /* Ešte menší nadpis pre mobilné zariadenia */
+    margin-bottom: 0.8rem; /* Menší spodný margin */
+  }
+}
+
+.member-block-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.787); /* Tmavšie pozadie pre lepšiu čitateľnosť */
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Zarovnanie textu do stĺpca */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.member-block-image-wrap:hover .hover-text {
+  opacity: 1;
+}
+
+.hover-text p {
+  font-size: 1.2rem;
+  color:rgba(230, 221, 221, 0.679);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hover-text span {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Cena v kruhu */
+.member-block-image-wrap .price {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: #C10001;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+/* Zobrazenie ceny pri hovernutí */
+.member-block-image-wrap:hover .price {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.member-block {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+  border-radius: 10px; /* Voliteľné: zaoblené rohy */
+  transition: box-shadow 0.3s ease; /* Plynulý prechod pri hover */
+}
+
+.member-block-image {
+  filter: grayscale(10%) brightness(95%);
+  transition: filter 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  /* Zarovnanie textov na stred */
+  .about-section .col-lg-5,
+  .membership-section .col-lg-5 {
+    text-align: center; /* Zarovná texty na stred horizontálne */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zarovná texty na stred vertikálne */
+    align-items: center; /* Zarovná texty na stred horizontálne */
+    height: auto; /* Uistite sa, že výška sa prispôsobí obsahu */
+  }
+
+  .about-section .col-lg-5 h3,
+  .membership-section .col-lg-5 h3 {
+    text-align: center; /* Zarovná nadpisy na stred */
+    margin-bottom: 15px; /* Pridá medzeru pod nadpis */
+  }
+
+  .about-section .col-lg-5 p,
+  .membership-section .col-lg-5 p {
+    text-align: center; /* Zarovná odseky na stred */
+    margin-bottom: 10px; /* Pridá medzeru medzi odsekmi */
+  }
+
+  /* Odstránenie paddingu pre lepšie zarovnanie */
+  .about-section .col-lg-5,
+  .membership-section .col-lg-5 {
+    padding: 15px; /* Pridá padding okolo textu */
+  }
+
+  .about-section .row {
+    flex-direction: column; /* Zabezpečí, že prvky budú pod sebou */
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .about-section .col-lg-5,
+  .membership-section .col-lg-5 {
+    text-align: center !important;
+    padding: 15px;
+    margin-bottom: 2rem;
+  }
+
+  .about-section .col-lg-5 h3,
+  .membership-section .col-lg-5 h3 {
+    text-align: center !important;
+  }
+
+  .about-section .col-lg-5 p,
+  .membership-section .col-lg-5 p {
+    text-align: center !important;
+  }
+}
+
+
+    </style>
+    </body>
+</html>

@@ -27,49 +27,22 @@
     <body>
 
         <main>
-
-            <nav class="navbar navbar-expand-lg">                
-                <div class="container">
-                    <a class="navbar-brand d-flex align-items-center" href="index.html">
-                        <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Zem-Com">
-                        <span class="navbar-brand-text" >
-                            Zem-Com
-                            <small></small>
-                        </span>
-                    </a>
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-lg-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Domov</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link" href="wellness.html">Wellness</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="pobyt.html">Pobyt</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="galeria.html">Galeria</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="kontakt.html">Kontakt</a>
-                            </li>
-
-                        </ul>
-
-                        
-                    </div>
-                </div>
-            </nav>
+            <div id="navbar-placeholder"></div>
+<script>
+            fetch('navbar.html')
+              .then(response => response.text())
+              .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Highlight the current page in navbar
+                const path = window.location.pathname.split('/').pop();
+                document.querySelectorAll('#navbar-placeholder a.nav-link').forEach(link => {
+                  if (link.getAttribute('href') === path) {
+                    link.classList.add('active');
+                  }
+                });
+              });
+            </script>
+            
 
 
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
@@ -227,248 +200,35 @@
             </section>
 
 
-<section class="events-section section-bg section-padding" id="section_4">
-  <div class="container px-4">
-    <h2 class="text-center mb-5">Čo o nás hovoria naši zákazníci</h2>
-    <div class="review-slider">
-      <div class="review-track">
-        <!-- Recenzie -->
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Veľmi pekné to tam máte, útulné, hezké. Človek sa tam dobre cíti."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Emka</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Bolo nám krásne, určite ešte prídeme."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-            <div class="review-name fw-semibold">Marika</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Byli jsme moc spokojený určitě to nebyla poslední návšteva."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Nikolette</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Wellness bol super. Veľmi príjemné priestory na oddýchnutie či už lehátka, sauny aj veľká vírivka. Pekné prostredie na oddych s krásnou vôňou a kľudom."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Janko</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Cítili sme sa u vás veľmi príjemne, wellness je krásny, moderný a príjemne zariadený. Určite sa ku vám ešte vrátime a budeme vás odporúčať aj našim známim."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Mária</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Všetko bolo super, odišli sme veľmi spokojní a neboli sme u vás naposledy."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Marika</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Wellness bol výborný, krásne to je spravené. Teším sa na ďaľšiu návštevu."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Mima</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Cítili sme sa skvelo, akurát možno ochladzovacia kaďa nám chýbala. Ale dali sme si studenú sprchu."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Barbora</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Wellness bol super. A určite sa ku vám ešte vrátime."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Julka</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Vynikajúce odporúčam maximálne súkromie."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Johni</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Wellness bol úžasný, príjemne sme si oddýchli."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Paťka</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Všetko bolo super, veľmi sme si to užili a ďakujeme určite sa radi vrátime."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Katka</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Wellness s príjemnou atmosférou a maximálnym súkromím. Priestory sú útulné, čisté a starostlivo udržiavané. Radi sa sem opäť vrátime a s radosťou odporúčame ďalej."</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Marika</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Sme nadmieru spokojní. Najlepší wellness na akom sme boli :) súkromie, skvelá vírivka, vybavenie. Oddýchli sme si a prídeme aj nabudúce 🫶"</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Jannka</div>
-          </div>
-        </div>
-        <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-          <p class="mb-3 fst-italic">"Ďakujeme veľmi veľmi pekne. Veľmi sme si oddýchli a určite ešte prídeme!"</p>
-          <div class="review-footer">
-            <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="review-name fw-semibold">Veronika</div>
-          </div>
-        </div>
-        <!-- Duplikácia pre nekonečný efekt (voliteľné) -->
-        <!-- ... -->
-      </div>
-    </div>
-  </div>
-</section>
+
+<div id="review-slider-section"></div>
+<script>
+  fetch('review.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('review-slider-section').innerHTML = data;
+    });
+</script>
 
 
-            <section class="contact-section section-padding" id="section_5">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-5 col-12">
-                            <form action="https://formsubmit.co/zem-zen@gacel.sk" method="POST" class="custom-form contact-form" role="form">
-                                <h2 class="mb-4 pb-2">Kontaktujte nás</h2>
-
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-floating">
-                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
-                                            
-                                            <label for="floatingInput">Vaše meno</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-12"> 
-                                        <div class="form-floating">
-                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
-                                            
-                                            <label for="floatingInput">vaša emailová adresa</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" id="message" name="message" placeholder="Describe message here"></textarea>
-                                            
-                                            <label for="floatingTextarea">Správa</label>
-                                        </div>
-
-                                        <button type="submit" class="form-control">Odoslať</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="col-lg-6 col-12">
-                            <div class="contact-info mt-5">
-                                <div class="contact-info-item">
-                                    <div class="contact-info-body">
-                                        <strong>Dolný Kubín, Slovensko</strong>
-
-                                        <p class="mt-2 mb-1">
-                                            <a href="tel: +421901701011" class="contact-link">
-                                                +421
-                                                901 701 011
-                                            </a>
-                                        </p>
-
-                                        <p class="mb-0">
-                                            <a href="mailto:zem-zen@gacel.sk" class="contact-link">
-                                                zem-zen@gacel.sk
-                                            </a>
-                                        </p>
-                                    </div>
-
-                                    <div class="contact-info-footer">
-                                        <a href="https://maps.app.goo.gl/VVedfCsYFKrk4pay9" target="_blank" rel="noopener">Ako sa ku nám dostať?</a>
-                                    </div>
-                                </div>
-
-                                <img src="images/WorldMap.svg" class="img-fluid" alt="">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
+<div id="kontaktujte-nas"></div>
+<script>
+  fetch('kontakt_sekcia.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('kontaktujte-nas').innerHTML = data;
+    });
+</script>
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
-                        <a class="navbar-brand d-flex align-items-center" href="index.html">
-                            <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="">
-                            <span class="navbar-brand-text">
-                                Zem-Com
-                                <small></small>
-                            </span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-12">
-                        <h5 class="site-footer-title mb-4">Vyberte si termín</h5>
-
-                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
-                            <span>Pon-Štv</span>
-                            14:30 - 20:30
-                        </p>
-
-                        <p class="d-flex me-lg-3">
-                            <span>Pia-Ned</span>
-                            14:00 - 22:30
-                        </p>
-                        <br>
-                        <p class="copyright-text">Copyright © 2025 Zem-Com</p>
-                    </div>
-
-                        <div class="col-lg-2 col-12 ms-auto">
-                            <ul class="social-icon mt-lg-5 mt-3 mb-4">
-                                <li class="social-icon-item">
-                                    <a href="https://www.instagram.com/zemzen_wellness/" class="social-icon-link bi-instagram" target="_blank" rel="noopener" title="Instagram"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a id="Setmore_button_iframe" href="https://zemzen.setmore.com" class="social-icon-link bi-calendar-event" target="_blank" rel="noopener" title="Online rezervácie"></a>
-                                 </li>
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-
-                </div>
-            </div>
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
-        </footer>
+        <div id="footer-placeholder"></div>
+        <script>
+          fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+            });
+        </script>
 
 
         <!-- JAVASCRIPT FILES -->
@@ -478,17 +238,7 @@
         <script src="js/animated-headline.js"></script>
         <script src="js/modernizr.js"></script>
         <script src="js/custom.js"></script>
-        <script>
-  // Highlight 'Domov' as active on the homepage
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link, idx) {
-      if(idx === 0) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  });
+        
 </script>
 <script 
     id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">

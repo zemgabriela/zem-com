@@ -149,7 +149,7 @@
 <section class="gallery-slider-section section-padding" id="section_3" style="padding-top: 1.2rem; padding-bottom: 1.2rem;">
   <div class="container d-flex flex-column align-items-center">
     <div class="options gallery-slider-2">
-      <div class="option active" style="--optionBackground:url('images/pic1.jpeg');">
+      <div class="option" style="--optionBackground:url('images/pic1.jpeg');">
         <div class="shadow"></div>
         <div class="label">
           <div class="info">
@@ -253,51 +253,6 @@
     id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
 </script>
 <style>
-  /* Fixná veľkosť kariet a medzery medzi nimi */
-  .testimonial {
-    min-height: 320px;
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 1.5rem;
-  }
-
-  .testimonial p.fst-italic {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 1.2rem;
-  margin-top: 0.5rem;
-  font-size: 1.05em;
-  padding: 0 0.5rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-  .testimonial .review-footer {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2em;
-  }
-
-  .testimonial .stars {
-    margin-bottom: 0.1em;
-  }
-
-  .testimonial .review-name {
-    font-weight: 600;
-    font-size: 1.1em;
-  }
 
   @media (min-width: 768px) {
     .carousel-inner .row {
@@ -347,21 +302,6 @@
   background: #f3f1de;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-}
-
-/* Animácia pre nekonečný pohyb */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Zastavenie animácie pri hover */
-.review-slider:hover .review-track {
-  animation-play-state: paused;
 }
 
 #reviews {
@@ -505,6 +445,10 @@
   background-size: cover;
   z-index: 2;
 }
+/* Disable transition when .active is removed (instant minimize) */
+.option:not(.active) {
+  transition: none !important;
+}
 .option .shadow {
   position: absolute;
   bottom: 0;
@@ -592,101 +536,38 @@
   }
 }
 </style>
+
 <script>
-// Interactive gallery slider logic with auto-advance
-$(document).ready(function() {
-  var $options = $('.options .option');
-  var current = 0;
-  var interval = null;
-  var autoAdvance = function() {
-    $options.removeClass('active');
-    current = (current + 1) % $options.length;
-    $options.eq(current).addClass('active');
-  };
-  // Manual click
-  $options.click(function() {
-    $options.removeClass('active');
-    $(this).addClass('active');
-    current = $options.index(this);
-  });
-  // Auto-advance logic
-  function startAutoAdvance() {
-    if(interval) clearInterval(interval);
-    interval = setInterval(function() {
-      if (!$('.options').is(':hover')) {
-        autoAdvance();
-      }
-    }, 2000); // changed from 1500 to 2000 ms
-  }
-  // Pause on hover
-  $('.options').hover(
-    function() { if(interval) clearInterval(interval); },
-    function() { startAutoAdvance(); }
-  );
-  // Also pause on focus (for accessibility)
-  $options.on('focusin', function() { if(interval) clearInterval(interval); });
-  $options.on('focusout', function() { startAutoAdvance(); });
-  // Start auto-advance
-  startAutoAdvance();
-});
-</script>
-<script>
-// Synchronized gallery sliders logic
-$(document).ready(function() {
+$(document).ready(function () {
   function setupGallerySlider(selector) {
-    var $options = $(selector + ' .option');
-    var current = 0;
-    var interval = null;
-    var autoAdvance = function() {
-      $options.removeClass('active top');
-      current = (current + 1) % $options.length;
-      $options.eq(current).addClass('active');
-    };
-    // Hover: enlarge hovered photo
-    $options.hover(
-      function() {
-        $options.removeClass('active');
-        $(this).addClass('active');
-        current = $options.index(this);
-      },
-      function() {}
-    );
-    // Click: bring to top and enlarge more
-    $options.click(function(e) {
-      $options.removeClass('top');
-      $(this).addClass('top');
-      $options.removeClass('active');
-      $(this).addClass('active');
-      current = $options.index(this);
-      e.stopPropagation();
+    var $options = $(selector + " .option");
+
+    $options.on("click", function (e) {
+      var $this = $(this);
+
+      // If already active → remove (shrink)
+      if ($this.hasClass("active")) {
+        $this.removeClass("active top");
+        return;
+      }
+
+      // Not active → activate it and deactivate others
+      $options.removeClass("active top");
+      $this.addClass("active top");
     });
-    // Remove .top class when clicking outside
-    $(document).click(function(e) {
-      if (!$(e.target).closest(selector + ' .option').length) {
-        $options.removeClass('top');
+
+    // Optional: clicking outside removes enlargement
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest(selector + " .option").length) {
+        $options.removeClass("active top");
       }
     });
-    // Auto-advance logic
-    function startAutoAdvance() {
-      if(interval) clearInterval(interval);
-      interval = setInterval(function() {
-        if (!$(selector).is(':hover') && $(selector + ' .option.top').length === 0) {
-          autoAdvance();
-        }
-      }, 2000);
-    }
-    // Pause on hover or when a photo is on top
-    $(selector).hover(
-      function() { if(interval) clearInterval(interval); },
-      function() { startAutoAdvance(); }
-    );
-    $options.on('focusin', function() { if(interval) clearInterval(interval); });
-    $options.on('focusout', function() { startAutoAdvance(); });
-    startAutoAdvance();
   }
-  setupGallerySlider('.gallery-slider-1');
-  setupGallerySlider('.gallery-slider-2');
+
+  setupGallerySlider(".gallery-slider-1");
+  setupGallerySlider(".gallery-slider-2");
 });
 </script>
+
     </body>
 </html>

@@ -281,14 +281,6 @@
   padding: 1rem 0;
 }
 
-/* Pás s recenziami */
-.review-track {
-  display: flex;
-  gap: 24px; /* Medzera medzi recenziami */
-  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
-  animation: scroll 20s linear infinite;
-}
-
 /* Každá recenzia */
 .testimonial {
   flex: 0 0 320px; /* Fixná šírka recenzie */
@@ -325,46 +317,6 @@
   padding: 1rem 0;
 }
 
-.review-track {
-  display: flex;
-  gap: 24px;
-  animation: scroll 20s linear infinite;
-}
-
-.testimonial {
-  flex: 0 0 320px;
-  max-width: 320px;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.testimonial p {
-  margin-bottom: 1rem;
-}
-
-.testimonial .review-footer {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.testimonial .stars {
-  margin-bottom: 0.5rem;
-}
-
-.testimonial .review-name {
-  font-weight: 600;
-}
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -372,10 +324,6 @@
   100% {
     transform: translateX(-100%);
   }
-}
-
-.review-slider:hover .review-track {
-  animation-play-state: paused;
 }
 
 @media (max-width: 768px) {

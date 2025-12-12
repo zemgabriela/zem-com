@@ -72,7 +72,25 @@
                                       h2.style.display = "none";
                                       break;
                                             }
-                            }
+                            // Dynamically change hero background
+            const hero = container.querySelector('.hero-section');
+            if(hero) {
+                let bgUrl = '';
+                switch (page) {
+                    case "pobyt.html":
+                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                        break;
+                    case "wellness.html":
+                        bgUrl = 'images/pic5.jpeg';
+                        break;
+                    case "galeria.html":
+                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                        break;
+                    default:
+                        bgUrl = 'images/pic5.jpeg';
+                }
+                hero.style.backgroundImage = `url('${bgUrl}')`;
+            }}
 
                             loadVitajte();
                         </script>

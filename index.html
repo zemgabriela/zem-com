@@ -45,7 +45,7 @@
             
 
 
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1" data-bg="images/pic5.jpeg">
 
                 <div class="section-overlay"></div>
 
@@ -166,15 +166,15 @@
                         <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
                             <h3 class="mb-3">Pohodlie a štandart</h3>
 
-                            <p><strong>Zem-Stay</strong>, je chatka s nádherným moderným vybavením. Môžete si oddýchnuť na kraji prírody ďaleko od mestského ruchu.</p>
+                            <p>V <strong>Zem-Stay</strong>, Vám ponúkame ubytovanie v moderných dvojdomoch. Môžete si oddýchnuť na kraji prírody ďaleko od mestského ruchu.</p>
 
-                        <p>Aj napriek tomu že budete v pokoji prírody naše ubytovanie je stále moderne vybavené s elektrikou, vodou, televízorom a internetovým pripojením.</p>
+                        <p>Sme ideálnou voľbou pre hostí, ktorí očakávajú moderný dizajn, kvalitu a súkromie. Lokalita zaručuje ticho, zatiaľ čo moderná architektúra a nadštandardné vybavenie interiérov spĺňajú všetky požiadavky na komfort.</p>
                         </div>
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/pic1.jpeg" class="member-block-image img-fluid" alt="">
+                                    <img src="images/dvojdomy_ai.JPEG" class="member-block-image img-fluid" alt="">
 
                                     
                                 </div>
@@ -186,7 +186,7 @@
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/pic2.jpeg" class="member-block-image img-fluid" alt="">
+                                    <img src="images/dvojdomy_zvrchu.JPEG" class="member-block-image img-fluid" alt="">
 
                                     
                                 </div>
@@ -358,6 +358,43 @@
         <script src="js/custom.js"></script>
         
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const section = document.querySelector('.section-bg-image');
+  if(!section) return;
+
+  const page = window.location.pathname.split('/').pop().toLowerCase();
+
+  let bgUrl = '';
+
+  switch(page) {
+    case 'index.html':
+      bgUrl = 'images/pic5.jpeg';
+      break;
+    case 'pobyt.html':
+      bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+      break;
+    case 'wellness.html':
+      bgUrl = 'images/pic5.jpeg';
+      break;
+    default:
+      bgUrl = 'images/pic5.jpeg';
+  }
+
+  section.style.backgroundImage = `url('${bgUrl}')`;
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hero = document.querySelector('.hero-section');
+    const bg = hero.dataset.bg;
+    if (bg) {
+      hero.style.backgroundImage = `url('${bg}')`;
+    }
+  });
+</script>
+
 <script 
     id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
 </script>
@@ -441,6 +478,12 @@
   gap: 24px; /* Medzera medzi recenziami */
   background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
   animation: scroll 20s linear infinite;
+}
+
+.member-block-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Každá recenzia */

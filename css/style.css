@@ -682,7 +682,6 @@ strong {
 -----------------------------------------*/
 /* TOTO JE VRCHNÉ POZADIE */
 .hero-section {
-  background-image: url('../images/pic5.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -692,6 +691,16 @@ strong {
   height: 100vh;
   min-height: 670px;
   margin-bottom: -90px;
+}
+
+/* Page-specific background */
+body.index .hero-section {
+  background-image: url('../images/pic5.jpeg');
+  background-color: rgba(0,0,0,1);
+}
+
+body.pobyt .hero-section {
+  background-image: url('../images/dvojdomy_zvrchu.JPEG');
 }
 
 .hero-50 {
@@ -750,12 +759,20 @@ strong {
   BACKGROUND IMAGE SECTION        
 -----------------------------------------*/
 .section-bg-image {
-  background-image: url('../images/pic5.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
   margin-bottom: -70px;
+  
+}
+
+body.index .section-bg-image {
+  background-image: url('../images/pic2.jpeg');
+}
+
+body.pobyt .section-bg-image {
+  background-image: url('../images/dvojdomy_zvrchu.JPEG');
 }
 
 .section-bg-image .container + svg {

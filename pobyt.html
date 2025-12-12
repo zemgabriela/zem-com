@@ -76,7 +76,27 @@
                           h2.style.display = "none";
                           break;
                                 }
+                
+                
+                // Dynamically change hero background
+            const hero = container.querySelector('.hero-section');
+            if(hero) {
+                let bgUrl = '';
+                switch (page) {
+                    case "pobyt.html":
+                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                        break;
+                    case "wellness.html":
+                        bgUrl = 'images/pic5.jpeg';
+                        break;
+                    case "galeria.html":
+                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                        break;
+                    default:
+                        bgUrl = 'images/pic5.jpeg';
                 }
+                hero.style.backgroundImage = `url('${bgUrl}')`;
+            }}
 
                 loadVitajte();
             </script>
@@ -109,7 +129,7 @@
                           <br>
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/dvojdomy_zvrchu.JPEG" class="member-block-image img-fluid" alt="" style="transform: scale(2);">
+                                    <img src="images/dvojdomy_zvrchu.JPEG" class="member-block-image img-fluid" alt="">
 
                                     
                                 </div>
@@ -144,7 +164,6 @@
 
             <section class="section-bg-image">
                 <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
-
                 <div class="container">
                     <div class="row">
                         <!--NAJSMUTNEJŠIA VEC ČO SOM KEDY UROBIL XDDDDDD-->
@@ -154,11 +173,8 @@
                         <br>
                         <br>
                         <br>
-
-
                     </div>
                 </div>
-
                 <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
             </section>
 
@@ -186,7 +202,7 @@
                           <br><br><br>
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/pic1.jpeg" class="member-block-image img-fluid" alt="">
+                                    <img src="images/kone.jpg" class="member-block-image img-fluid" alt="">
 
                                     
                                 </div>
@@ -199,7 +215,7 @@
                           <br><br><br>
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/pic2.jpeg" class="member-block-image img-fluid" alt="">
+                                    <img src="images/oravska_poruba.jpg" class="member-block-image img-fluid" alt="">
 
                                     
                                 </div>
@@ -299,7 +315,11 @@
     font-weight: 600;
     font-size: 1.1em;
   }
-
+  .member-block-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
   @media (min-width: 768px) {
     .carousel-inner .row {
       justify-content: center;
@@ -470,75 +490,42 @@
 }
 </style>
 <script>
-// Set min date for booking form to tomorrow (no current or previous dates allowed)
-document.addEventListener('DOMContentLoaded', function() {
-  var startInput = document.getElementById('bookingStart');
-  var endInput = document.getElementById('bookingEnd');
-  function getTomorrowISO() {
-    var d = new Date();
-    d.setDate(d.getDate() + 1);
-    return d.toISOString().split('T')[0];
-  }
-  var minDate = getTomorrowISO();
-  if (startInput) startInput.setAttribute('min', minDate);
-  if (endInput) endInput.setAttribute('min', minDate);
-});
-</script>
-<script>
-// Booking form integration with backend
-  document.addEventListener('DOMContentLoaded', function() {
-    var bookingForm = document.getElementById('bookingForm');
-    var bookingMessage = document.getElementById('bookingMessage');
-    if (bookingForm) {
-      bookingForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        bookingMessage.textContent = '';
-        // Collect form data
-        var fullName = document.getElementById('bookingFullName').value.trim();
-        var email = document.getElementById('bookingEmail').value.trim();
-        var phone = document.getElementById('bookingPhone').value.trim();
-        var start = document.getElementById('bookingStart').value;
-        var end = document.getElementById('bookingEnd').value;
-        var notes = document.getElementById('bookingNotes').value.trim();
-        // Validate required fields
-        if (!fullName || !email || !phone || !start || !end) {
-          bookingMessage.textContent = 'Vyplňte všetky povinné polia.';
-          bookingMessage.style.color = '#d9534f';
-          return;
-        }
-        // Prepare data for backend (convert dates to ISO)
-        var startDate = start.includes('/') ? start.split('/').reverse().join('-') : start;
-        var endDate = end.includes('/') ? end.split('/').reverse().join('-') : end;
-        var data = {
-          fullName,
-          email,
-          phone,
-          startDate: startDate,
-          endDate: endDate,
-          notes
-        };
-        try {
-          const response = await fetch('https://zem-com.onrender.com/api/bookings', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-          const result = await response.json();
-          if (response.ok) {
-            bookingMessage.textContent = 'Rezervácia bola úspešne odoslaná!';
-            bookingMessage.style.color = '#28a745';
-            bookingForm.reset();
-          } else {
-            bookingMessage.textContent = result.message || 'Chyba pri odosielaní rezervácie.';
-            bookingMessage.style.color = '#d9534f';
-          }
-        } catch (err) {
-          bookingMessage.textContent = 'Chyba pripojenia k serveru. Skúste neskôr.';
-          bookingMessage.style.color = '#d9534f';
-        }
-      });
+  document.addEventListener("DOMContentLoaded", function() {
+    const hero = document.querySelector('.hero-section');
+    const bg = hero.dataset.bg;
+    if (bg) {
+      hero.style.backgroundImage = `url('${bg}')`;
     }
   });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const section = document.querySelector('.section-bg-image');
+  if(!section) return;
+
+  const page = window.location.pathname.split('/').pop().toLowerCase();
+
+  let bgUrl = '';
+
+  switch(page) {
+    case 'index.html':
+      bgUrl = 'images/pic2.jpeg';
+      break;
+    case 'pobyt.html':
+      bgUrl = 'images/dvojdomy_ai.JPEG';
+      break;
+    case 'wellness.html':
+      bgUrl = 'images/pic5.jpeg';
+      break;
+    default:
+      bgUrl = 'images/pic2.jpeg';
+  }
+
+  section.style.backgroundImage = `url('${bgUrl}')`;
+});
+</script>
+
+
     </body>
 </html>

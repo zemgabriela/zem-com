@@ -91,7 +91,25 @@
                           h2.style.display = "none";
                           break;
                                 }
+                // Dynamically change hero background
+            const hero = container.querySelector('.hero-section');
+            if(hero) {
+                let bgUrl = '';
+                switch (page) {
+                    case "pobyt.html":
+                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                        break;
+                    case "wellness.html":
+                        bgUrl = 'images/pic5.jpeg';
+                        break;
+                    case "galeria.html":
+                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                        break;
+                    default:
+                        bgUrl = 'images/pic5.jpeg';
                 }
+                hero.style.backgroundImage = `url('${bgUrl}')`;
+            }}
 
                 loadVitajte();
             </script>
@@ -331,6 +349,32 @@
       });
       
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const section = document.querySelector('.section-bg-image');
+  if(!section) return;
+
+  const page = window.location.pathname.split('/').pop().toLowerCase();
+
+  let bgUrl = '';
+
+  switch(page) {
+    case 'index.html':
+      bgUrl = 'images/pic5.jpeg';
+      break;
+    case 'pobyt.html':
+      bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+      break;
+    case 'wellness.html':
+      bgUrl = 'images/pic5.jpeg';
+      break;
+    default:
+      bgUrl = 'images/pic5.jpeg';
+  }
+
+  section.style.backgroundImage = `url('${bgUrl}')`;
+});
+</script>
 <script 
     id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
 </script>
@@ -380,6 +424,12 @@
     font-weight: 600;
     font-size: 1.1em;
   }
+
+  .member-block-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
   @media (min-width: 768px) {
     .carousel-inner .row {

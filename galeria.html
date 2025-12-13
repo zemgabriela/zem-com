@@ -107,8 +107,8 @@
           <div class="shadow"></div>
           <div class="label">
             <div class="info">
-              <div class="main">Wellness</div>
-              <div class="sub">Pohľad z vírivky na sauny a oddychovú zónu</div>
+              <div class="main"></div>
+              <div class="sub"><strong>Wellness intérior</strong></div>
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@
           <div class="shadow"></div>
           <div class="label">
             <div class="info">
-              <div class="main">Vírivka s osvetlením</div>
-              <div class="sub">S hydromasážnimi tryskami a bublinkami</div>
+              <div class="main"></div>
+              <div class="sub"><strong>Vírivka s osvetlením</strong></div>
             </div>
           </div>
         </div>
@@ -125,8 +125,8 @@
           <div class="shadow"></div>
           <div class="label">
             <div class="info">
-              <div class="main">Kombinovaná Sauna</div>
-              <div class="sub">Infra a fínska sauna</div>
+              <div class="main"></div>
+              <div class="sub"><strong>Kombinovaná Sauna</strong></div>
             </div>
           </div>
         </div>
@@ -134,8 +134,8 @@
           <div class="shadow"></div>
           <div class="label">
             <div class="info">
-              <div class="main">Oddychová zóna</div>
-              <div class="sub">Príjemné prostredie</div>
+              <div class="main"></div>
+              <div class="sub"><strong>Oddychová zóna</strong></div>
             </div>
           </div>
         </div>
@@ -143,8 +143,8 @@
           <div class="shadow"></div>
           <div class="label">
             <div class="info">
-              <div class="main">Vernostná karta</div>
-              <div class="sub">Získajte výhody pri každej návšteve</div>
+              <div class="main"></div>
+              <div class="sub"><strong>Vernostná karta</strong></div>
             </div>
           </div>
         </div>
@@ -152,8 +152,8 @@
           <div class="shadow"></div>
           <div class="label">
             <div class="info">
-              <div class="main">Šampanské k pobytu</div>
-              <div class="sub">Doprajte si špeciálny zážitok pre výnimočné chvíle</div>
+              <div class="main"></div>
+              <div class="sub"><strong>Šampanské k pobytu</strong></div>
             </div>
           </div>
         </div>
@@ -272,106 +272,10 @@
 </script>
 <style>
 
-  @media (min-width: 768px) {
-    .carousel-inner .row {
-      justify-content: center;
-      gap: 24px;
-    }
-    .carousel-inner .col-md-4 {
-      flex: 0 0 320px;
-      max-width: 320px;
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-  /* Medzera vpravo a vľavo pre carousel */
-  .events-section .container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  /* Obal pre slider */
-.review-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
-  padding: 1rem 0;
-}
-
-/* Každá recenzia */
-.testimonial {
-  flex: 0 0 320px; /* Fixná šírka recenzie */
-  max-width: 320px;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background: #f3f1de;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-#reviews {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-#reviews h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.review-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  background: #f3f1de;
-  padding: 1rem 0;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@media (max-width: 768px) {
-  .review-slider {
-    padding: 1rem 0; /* Zmenšený padding pre mobilné zariadenia */
-  }
-
-  .review-track {
-    gap: 12px; /* Ešte menšia medzera medzi kartami na mobiloch */
-  }
-
-  .testimonial {
-    flex: 0 0 85%; /* Karty zaberú 85% šírky obrazovky */
-    max-width: 85%; /* Zabezpečí, že karty nebudú príliš široké */
-    min-height: 280px; /* Fixná výška pre rovnaké veľkosti kariet */
-    padding: 0.8rem; /* Zmenšený padding pre lepšie zobrazenie */
-  }
-
-  .testimonial p {
-    font-size: 0.85rem; /* Ešte menšie písmo pre text recenzií */
-  }
-
-  .testimonial .review-footer {
-    gap: 0.1em; /* Menšia medzera medzi hviezdičkami a menom */
-  }
-
-  #reviews h2 {
-    font-size: 1.4rem; /* Ešte menší nadpis pre mobilné zariadenia */
-    margin-bottom: 0.8rem; /* Menší spodný margin */
-  }
+/* Medzera vpravo a vľavo pre carousel */
+.events-section .container {
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .options {
@@ -479,7 +383,8 @@
     min-width: 40px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+
   .options {
     min-width: 0;
     max-width: 100vw;

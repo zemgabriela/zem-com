@@ -1,0 +1,227 @@
+/* Images in Wellness Centrum a Zem Stay */
+.member-block-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Rezervujte si svoj pobyt */
+.events-section .container {
+padding-left: 32px;
+padding-right: 32px;
+}
+
+/* Reviews */
+.testimonial {
+min-height: 320px;
+max-width: 340px;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+text-align: center;
+padding-bottom: 1.5rem;
+}
+
+.testimonial p.fst-italic {
+flex: 1 1 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+width: 100%;
+margin-bottom: 1.2rem;
+margin-top: 0.5rem;
+font-size: 1.05em;
+padding: 0 0.5rem;
+word-break: break-word;
+overflow-wrap: break-word;
+}
+
+.testimonial .review-footer {
+margin-top: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.2em;
+}
+
+.testimonial .stars {
+margin-bottom: 0.1em;
+}
+
+.testimonial .review-name {
+font-weight: 600;
+font-size: 1.1em;
+}
+
+.review-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
+  padding: 1rem 0;
+}
+
+/* Pás s recenziami */
+.review-track {
+  display: flex;
+  gap: 24px; /* Medzera medzi recenziami */
+  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
+  animation: scroll 20s linear infinite;
+}
+
+/* Každá recenzia */
+.testimonial {
+  flex: 0 0 320px; /* Fixná šírka recenzie */
+  max-width: 320px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background: #f3f1de;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Animácia pre nekonečný pohyb */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Zastavenie animácie pri hover */
+.review-slider:hover .review-track {
+  animation-play-state: paused;
+}
+
+#reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#reviews h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.review-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  background: #f3f1de;
+  padding: 1rem 0;
+}
+
+.review-track {
+  display: flex;
+  gap: 24px;
+  animation: scroll 20s linear infinite;
+}
+
+.testimonial {
+  flex: 0 0 320px;
+  max-width: 320px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.testimonial p {
+  margin-bottom: 1rem;
+}
+
+.testimonial .review-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial .stars {
+  margin-bottom: 0.5rem;
+}
+
+.testimonial .review-name {
+  font-weight: 600;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.review-slider:hover .review-track {
+  animation-play-state: paused;
+}
+
+.review-widget-container {
+    display: inline-block;
+    transform: translateY(15%);  /* posun o 10% nahor */
+}
+
+/* Mobile */
+@media (min-width: 768px) {
+.carousel-inner .row {
+    justify-content: center;
+    gap: 24px;
+}
+.carousel-inner .col-md-4 {
+    flex: 0 0 320px;
+    max-width: 320px;
+    padding-left: 0;
+    padding-right: 0;
+}
+}
+
+@media (max-width: 768px) {
+  .review-slider {
+    padding: 1rem 0; /* Zmenšený padding pre mobilné zariadenia */
+  }
+
+  .review-track {
+    gap: 12px; /* Ešte menšia medzera medzi kartami na mobiloch */
+  }
+
+  .testimonial {
+    flex: 0 0 85%; /* Karty zaberú 85% šírky obrazovky */
+    max-width: 85%; /* Zabezpečí, že karty nebudú príliš široké */
+    min-height: 280px; /* Fixná výška pre rovnaké veľkosti kariet */
+    padding: 0.8rem; /* Zmenšený padding pre lepšie zobrazenie */
+  }
+
+  .testimonial p {
+    font-size: 0.85rem; /* Ešte menšie písmo pre text recenzií */
+  }
+
+  .testimonial .review-footer {
+    gap: 0.1em; /* Menšia medzera medzi hviezdičkami a menom */
+  }
+
+  #reviews h2 {
+    font-size: 1.4rem; /* Ešte menší nadpis pre mobilné zariadenia */
+    margin-bottom: 0.8rem; /* Menší spodný margin */
+  }
+}

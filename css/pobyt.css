@@ -40,6 +40,8 @@
   max-width: 780px;
   width: 90%;
   padding: 30px;
+  max-height: 90vh;          /* KEY LINE */
+  overflow-y: auto;
   border-radius: 12px;
   position: relative;
   font-size: 16px;
@@ -54,7 +56,8 @@
 
 /* Info pop up close button */
 .zem-close {
-  position: absolute;
+  position: sticky;
+  float: right;
   top: 12px;
   right: 14px;
   cursor: pointer;
@@ -128,12 +131,6 @@
   color: #bbb;
 }
 
-@media (max-width: 576px) {
-  .offers-list {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Dvojstĺpcový zoznam s bullet points */
 .columns .column ul li {
   font-size: 16px; /* menší text v zozname */
@@ -166,4 +163,18 @@
 .column {
   flex: 1; /* každý stĺpec zaberie rovnakú šírku */
   min-width: 250px; /* zabráni príliš úzkym stĺpcom */
+}
+
+/* Mobile*/
+@media (max-width: 768px) {
+  .zem-popup {
+    max-height: 85vh;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .offers-list {
+    grid-template-columns: 1fr;
+  }
 }

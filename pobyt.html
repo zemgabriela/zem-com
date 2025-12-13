@@ -120,7 +120,9 @@
                               Na prízemí nájdete plne vybavenú kuchyňu, obývaciu miestnosť a malé WC. 
                               Na poschodí sú umiestnené dve samostatné izby, hlavná spálňa a kúpeľňa.
                               Súčasťou ubytovania, je aj <strong>súkromná garáž pred domov a vlastná terasa.</strong></p>
- 
+ <button class="zem-info-btn" onclick="openZemPopup()">
+  Informácie o pobyte
+</button>
 
 
                         </div>
@@ -190,7 +192,7 @@
                         <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
                             <h3 class="mb-3">Aktivity a Relax</h3>
 
-                          <p><strong>Naša dvojdomy</strong>, sú ideálne na pobyt počas celého roka. </p>
+                          <p><strong>Naše dvojdomy</strong>, sú ideálne na pobyt počas celého roka. </p>
                           <p>Milovníci koní si môžu užiť jazdu priamo v areáli. V lete môžete objavovať krásy Oravy turistickými a cyklistickými trasami. Oravský hrad je len 15 minút autom a stojí za návštevu pre svoj historický význam a krásne výhľady.</p>
                           <p>V zime Vás poteší lyžovanie na Kubínskej holi, ktorá je v blízkom okolí. 
                             Kúsok od chatky nájdete privátne wellness centrum, <strong>Zem-Zen</strong>, 
@@ -526,6 +528,291 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- ===== POPUP INFO O POBYTE ===== -->
+<style>
+.zem-info-btn {
+  background-color: #3D405B;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.zem-info-btn:hover { background-color: #81B29A; }
+
+.zem-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.zem-popup-overlay.active { display: flex; }
+
+.zem-popup {
+  background: #fff;
+  max-width: 780px;
+  width: 90%;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  font-size: 16px;
+}
+
+.zem-popup h2 { color: #2f6f62; margin-top: 0;}
+.zem-popup h4 { margin-top: 18px; font-size: 20px;}
+
+.zem-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  cursor: pointer;
+  color: #999;
+}
+
+.offers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 24px;
+  margin-top: 16px;
+}
+
+.offer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.offer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.offer-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.offer-title {
+  font-weight: 500;
+  font-size: 15.5px;
+}
+
+.offer-text small {
+  color: #6c757d;
+  font-size: 13.5px;
+}
+
+.offers-list.unavailable .offer-icon {
+  opacity: 0.35;
+  filter: grayscale(100%);
+}
+
+.offers-list.unavailable i {
+  opacity: 0.35;
+}
+
+.offer-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.offer-item i {
+  font-size: 18px;
+}
+
+.offers-list.unavailable .offer-item {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.offers-list.unavailable i {
+  color: #bbb;
+}
+
+.zem-popup p {
+  font-size: 16px; /* menší odsek */
+}
+
+
+.columns .column ul li {
+  font-size: 16px; /* menší text v zozname */
+}
+
+@media (max-width: 576px) {
+  .offers-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+  .columns {
+    display: flex;
+    gap: 40px; /* vzdialenosť medzi stĺpcami */
+    flex-wrap: wrap; /* aby sa stĺpce zalamovali na menších obrazovkách */
+  }
+
+.columns .column ul {
+  list-style: none; /* odstráni pôvodné bulletky */
+  padding: 0;
+}
+
+.columns .column ul li {
+  position: relative;
+  padding-left: 25px; /* miesto pre šípku */
+  margin-bottom: 8px;
+}
+
+.columns .column ul li::before {
+  content: "-"; /* šípka ako bullet */
+  position: absolute;
+  left: 0;
+  font-size: 16px; 
+}
+
+
+  .column {
+    flex: 1; /* každý stĺpec zaberie rovnakú šírku */
+    min-width: 250px; /* zabráni príliš úzkym stĺpcom */
+  }
+</style>
+
+<div class="zem-popup-overlay" id="zemPopup">
+  <div class="zem-popup">
+    <span class="zem-close" onclick="closeZemPopup()">&times;</span>
+
+    <h2>Informácie o Zem-Stay</h2>
+
+<div class="columns">
+  <div class="column">
+    <h4>Príchod</h4>
+    <ul>
+      <li>Ubytovať sa je možné od <strong>15:00</strong></li>
+      <li>Samostatný príchod pomocou kódu</li>
+    </ul>
+  </div>
+
+  <div class="column">
+    <h4>Odchod</h4>
+    <ul>
+      <li>Uvoľnenie izby do <strong>11:00</strong></li>
+      <li>Odovzdanie kľúčov do schránky</li>
+  </div>
+</div>
+<hr>
+<div class="columns">
+  <div class="column">
+    <h4>Ako prebieha pobyt</h4>
+    <ul>
+      <li>Ubytovanie je bez obsluhy</li>
+      <li>Údržba a upratovanie počas pobytu nie je zabezpečené</li>
+    </ul>
+  </div>
+
+  <div class="column">
+    <h4>Domáce pravidlá</h4>
+    <ul>
+      <li>Žiadne domáce zvieratá</li>
+      <li>Zákaz fajčenia v interiéri</li>
+      <li>Dodržiavanie kľudu po 22:00</li>
+    </ul>
+  </div>
+</div>
+<hr>
+
+<h4 class="mt-4">Čo toto ubytovanie ponúka</h4>
+
+<div class="offers-list">
+  <div class="offer-item">
+    <i class="bi bi-cup-hot"></i>
+    <span>Kuchyňa</span>
+  </div>
+
+  <div class="offer-item">
+    <i class="bi bi-wifi"></i>
+    <span>Wi-Fi pripojenie</span>
+  </div>
+
+  <div class="offer-item">
+    <i class="bi bi-laptop"></i>
+    <span>Pracovný priestor</span>
+  </div>
+
+  <div class="offer-item">
+    <i class="bi bi-p-square"></i>
+    <span>Bezplatné parkovanie na ulici</span>
+  </div>
+
+  <div class="offer-item">
+    <i class="bi bi-tv"></i>
+    <span>TV</span>
+  </div>
+
+<div class="offer-item">
+  <img src="icons/terrace.svg" alt="Terasa" class="offer-icon">
+  <span>Terasa</span>
+</div>
+
+<div class="offer-item">
+  <i class="bi bi-camera-video"></i>
+  <span>Bezpečnostný kamerový systém</span>
+</div>
+
+<div class="offer-item">
+<img src="icons/washing-machine.svg" alt="Práčka" class="offer-icon">
+    <span>Práčka</span>
+</div>
+
+<div class="offer-item offer-essentials">
+  <i class="bi bi-basket"></i>
+  <div class="offer-text">
+    <span class="offer-title">Základné vybavenie</span>
+    <small>Uteráky, posteľná bielizeň, mydlo a toaletný papier</small>
+  </div>
+</div>
+
+</div>
+
+<hr>
+
+<h4 class="mt-4 text-muted">Nie je k dispozícii</h4>
+<div class="offers-list unavailable">
+  <div class="offer-item">
+    <img src="icons/elevator.svg" alt="Výťah" class="offer-icon">
+    <span>Výťah</span>
+  </div>
+
+  <div class="offer-item">
+    <img src="icons/smoke-detector.svg" alt="Detektor dymu" class="offer-icon">
+    <span>Detektor dymu</span>
+  </div>
+
+  <div class="offer-item">
+  <i class="bi bi-snow"></i>
+    <span>Klimatizácia</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+function openZemPopup() {
+  document.getElementById('zemPopup').classList.add('active');
+}
+function closeZemPopup() {
+  document.getElementById('zemPopup').classList.remove('active');
+}
+document.getElementById('zemPopup').addEventListener('click', function(e){
+  if(e.target === this) closeZemPopup();
+});
+</script>
 
     </body>
 </html>

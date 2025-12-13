@@ -9,7 +9,7 @@
 
         <title>Zem-Com</title>
 
-        <!-- CSS FILES -->                
+<!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,87 +22,89 @@
 
         <link href="css/style.css" rel="stylesheet">
 
+        <link href="css/pobyt.css" rel="stylesheet">
+
         <!-- Flatpickr CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         
     </head>
     
     <body>
 
         <main>
-
-            <div id="navbar-placeholder"></div>
-            <script>
-            fetch('navbar.html')
-              .then(response => response.text())
-              .then(data => {
-                document.getElementById('navbar-placeholder').innerHTML = data;
-                // Highlight the current page in navbar
-                const path = window.location.pathname.split('/').pop();
-                document.querySelectorAll('#navbar-placeholder a.nav-link').forEach(link => {
-                  if (link.getAttribute('href') === path) {
-                    link.classList.add('active');
-                  }
-                });
-              });
-            </script>
-
-
-          <div id="vitajte"></div>
-            <script>
-                async function loadVitajte() {
-                    const container = document.getElementById('vitajte');
-                    const html = await fetch('vitajte.html').then(r => r.text());
-                    container.innerHTML = html;
-
-                    // Dynamically update title based on the page
-                    const title = document.getElementById('vitajte-title');
-                    const h2 = document.getElementById('vitajte-h2');
-                    const page = window.location.pathname.split('/').pop().toLowerCase();
-
-                    switch (page) {
-                        case "pobyt.html":
-                            title.innerHTML = 'Zem -&nbsp;<span style="color:#F2CC8F;">Stay</span>';
-                            h2.style.display = "";
-                            break;
-
-                        case "wellness.html":
-                            title.innerHTML = 'Zem -&nbsp;<span style="color:#F2CC8F;">Zen</span>';
-                            h2.style.display = "";
-                            break;
-
-                        case "galeria.html":
-                          title.innerHTML = '<span style="color:#F2CC8F;">Galéria</span>';
-                          h2.style.display = "none";
-                          break;
-                                }
-                
-                
-                // Dynamically change hero background
-            const hero = container.querySelector('.hero-section');
-            if(hero) {
-                let bgUrl = '';
-                switch (page) {
-                    case "pobyt.html":
-                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
-                        break;
-                    case "wellness.html":
-                        bgUrl = 'images/pic5.jpeg';
-                        break;
-                    case "galeria.html":
-                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
-                        break;
-                    default:
-                        bgUrl = 'images/pic5.jpeg';
+<!-- NAVBAR -->
+        <div id="navbar-placeholder"></div>
+          <script>
+          fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('navbar-placeholder').innerHTML = data;
+              // Highlight the current page in navbar
+              const path = window.location.pathname.split('/').pop();
+              document.querySelectorAll('#navbar-placeholder a.nav-link').forEach(link => {
+                if (link.getAttribute('href') === path) {
+                  link.classList.add('active');
                 }
-                hero.style.backgroundImage = `url('${bgUrl}')`;
-            }}
+              });
+            });
+          </script>
 
-                loadVitajte();
-            </script>
+<!-- VITAJTE -->
+        <div id="vitajte"></div>
+          <script>
+              async function loadVitajte() {
+                  const container = document.getElementById('vitajte');
+                  const html = await fetch('vitajte.html').then(r => r.text());
+                  container.innerHTML = html;
+
+                  // Dynamically update title based on the page
+                  const title = document.getElementById('vitajte-title');
+                  const h2 = document.getElementById('vitajte-h2');
+                  const page = window.location.pathname.split('/').pop().toLowerCase();
+
+                  switch (page) {
+                      case "pobyt.html":
+                          title.innerHTML = 'Zem -&nbsp;<span style="color:#F2CC8F;">Stay</span>';
+                          h2.style.display = "";
+                          break;
+
+                      case "wellness.html":
+                          title.innerHTML = 'Zem -&nbsp;<span style="color:#F2CC8F;">Zen</span>';
+                          h2.style.display = "";
+                          break;
+
+                      case "galeria.html":
+                        title.innerHTML = '<span style="color:#F2CC8F;">Galéria</span>';
+                        h2.style.display = "none";
+                        break;
+                              }
+              
+              
+              // Dynamically change hero background
+          const hero = container.querySelector('.hero-section');
+          if(hero) {
+              let bgUrl = '';
+              switch (page) {
+                  case "pobyt.html":
+                      bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                      break;
+                  case "wellness.html":
+                      bgUrl = 'images/pic5.jpeg';
+                      break;
+                  case "galeria.html":
+                      bgUrl = 'images/dvojdomy_zvrchu.JPEG';
+                      break;
+                  default:
+                      bgUrl = 'images/pic5.jpeg';
+              }
+              hero.style.backgroundImage = `url('${bgUrl}')`;
+          }}
+
+              loadVitajte();
+          </script>
 
 
-
+<!-- UBYTOVANIE SECTION -->
             <section class="about-section section-padding" id="section_2">
                 <div class="container">
                     <div class="row">
@@ -120,23 +122,18 @@
                               Na prízemí nájdete plne vybavenú kuchyňu, obývaciu miestnosť a malé WC. 
                               Na poschodí sú umiestnené dve samostatné izby, hlavná spálňa a kúpeľňa.
                               Súčasťou ubytovania, je aj <strong>súkromná garáž pred domov a vlastná terasa.</strong></p>
- <button class="zem-info-btn" onclick="openZemPopup()">
-  Informácie o pobyte
-</button>
 
-
-                        </div>
+                            <button class="zem-info-btn" onclick="openZemPopup()">
+                              Informácie o pobyte
+                            </button>
+                         </div>
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
                           <br>
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/dvojdomy_zvrchu.JPEG" class="member-block-image img-fluid" alt="">
-
-                                    
+                                    <img src="images/dvojdomy_zvrchu.JPEG" class="member-block-image img-fluid" alt=""> 
                                 </div>
-
-                                
                             </div>
                         </div>
 
@@ -145,25 +142,21 @@
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
                                     <img src="images/dvojdomy_ai.JPEG" class="member-block-image img-fluid" alt="" style="object-fit: cover; object-position: bottom; height: 250px; width: 100%;">
-
-                                    
                                 </div>
-
-                                
                             </div>
                         
- <div class="text-end mt-2">
-        <small class="text-muted">
-          Viac fotiek ubytovania nájdete v
-          <a href="galeria.html" class="link-secondary" style="text-decoration: underline;">galérii</a>.
-        </small>
-      </div>
-      </div>
-                    </div>
-                </div>
+                            <div class="text-end mt-2">
+                                    <small class="text-muted">
+                                      Viac fotiek ubytovania nájdete v
+                                      <a href="galeria.html" class="link-secondary" style="text-decoration: underline;">galérii</a>.
+                                    </small>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
             </section>
 
-
+<!-- SVG DIVIDER -->
             <section class="section-bg-image">
                 <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
                 <div class="container">
@@ -180,23 +173,21 @@
                 <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
             </section>
 
-
+<!-- AKTIVITY A RELAX SECTION -->
             <section class="membership-section section-padding" id="section_3">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-12 col-12 text-center">
                             <h2 class="mb-lg-5 mb-4"></h2>
                         </div>
 
                         <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
                             <h3 class="mb-3">Aktivity a Relax</h3>
-
                           <p><strong>Naše dvojdomy</strong>, sú ideálne na pobyt počas celého roka. </p>
                           <p>Milovníci koní si môžu užiť jazdu priamo v areáli. V lete môžete objavovať krásy Oravy turistickými a cyklistickými trasami. Oravský hrad je len 15 minút autom a stojí za návštevu pre svoj historický význam a krásne výhľady.</p>
                           <p>V zime Vás poteší lyžovanie na Kubínskej holi, ktorá je v blízkom okolí. 
                             Kúsok od chatky nájdete privátne wellness centrum, <strong>Zem-Zen</strong>, 
-                            v ktoróm Vás radi počas Vášho pobytu uvítame so zľavou. Navštíviť môžete aj aquapark, 
+                            v ktorom Vás radi počas Vášho pobytu uvítame so zľavou. Navštíviť môžete aj aquapark, 
                             ktorý je vzdialený len niekoľko minút peši.</p>
                         </div>
 
@@ -205,11 +196,7 @@
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
                                     <img src="images/kone.jpg" class="member-block-image img-fluid" alt="">
-
-                                    
                                 </div>
-
-                                
                             </div>
                         </div>
 
@@ -217,37 +204,32 @@
                           <br><br><br>
                             <div class="member-block">
                                 <div class="member-block-image-wrap">
-                                    <img src="images/oravska_poruba.jpg" class="member-block-image img-fluid" alt="">
-
-                                    
-                                </div>
-
-                                
+                                    <img src="images/oravska_poruba.jpg" class="member-block-image img-fluid" alt="">   
+                                </div>      
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
+<!-- REZERVACIE SECTION -->
+            <section class="events-section section-bg section-padding" id="section_4">
+              <div class="container px-4">
+                <h2 class="text-center mb-5">Rezervujte si svoj pobyt</h2>
+              </div>
+            </section>
 
-<section class="events-section section-bg section-padding" id="section_4">
-  <div class="container px-4">
-    <h2 class="text-center mb-5">Rezervujte si svoj pobyt</h2>
-  </div>
-</section>
-
-
-<div id="kontaktujte-nas"></div>
-<script>
-  fetch('kontakt_sekcia.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('kontaktujte-nas').innerHTML = data;
-    });
-</script>
+<!-- KONTAKT SECTION -->
+            <div id="kontaktujte-nas"></div>
+            <script>
+              fetch('kontakt_sekcia.html')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('kontaktujte-nas').innerHTML = data;
+                });
+            </script>
         </main>
-
+<!-- FOOTER -->
         <div id="footer-placeholder"></div>
         <script>
           fetch('footer.html')
@@ -258,551 +240,145 @@
         </script>
 
 
-        <!-- JAVASCRIPT FILES -->
+<!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery.sticky.js"></script>
         <script src="js/animated-headline.js"></script>
         <script src="js/modernizr.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/pobyt.js"></script>
         <!-- Flatpickr JS -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<!-- SETMORE -->
 <script 
     id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
 </script>
-<style>
-  /* Fixná veľkosť kariet a medzery medzi nimi */
-  .testimonial {
-    min-height: 320px;
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 1.5rem;
-  }
 
-  .testimonial p.fst-italic {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 1.2rem;
-  margin-top: 0.5rem;
-  font-size: 1.05em;
-  padding: 0 0.5rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-  .testimonial .review-footer {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2em;
-  }
-
-  .testimonial .stars {
-    margin-bottom: 0.1em;
-  }
-
-  .testimonial .review-name {
-    font-weight: 600;
-    font-size: 1.1em;
-  }
-  .member-block-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-  }
-  @media (min-width: 768px) {
-    .carousel-inner .row {
-      justify-content: center;
-      gap: 24px;
-    }
-    .carousel-inner .col-md-4 {
-      flex: 0 0 320px;
-      max-width: 320px;
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-  /* Medzera vpravo a vľavo pre carousel */
-  .events-section .container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  /* Obal pre slider */
-.review-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
-  padding: 1rem 0;
-}
-
-/* Pás s recenziami */
-.review-track {
-  display: flex;
-  gap: 24px; /* Medzera medzi recenziami */
-  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
-  animation: scroll 20s linear infinite;
-}
-
-/* Každá recenzia */
-.testimonial {
-  flex: 0 0 320px; /* Fixná šírka recenzie */
-  max-width: 320px;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background: #f3f1de;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-/* Animácia pre nekonečný pohyb */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Zastavenie animácie pri hover */
-.review-slider:hover .review-track {
-  animation-play-state: paused;
-}
-
-#reviews {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-#reviews h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.review-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  background: #f3f1de;
-  padding: 1rem 0;
-}
-
-.review-track {
-  display: flex;
-  gap: 24px;
-  animation: scroll 20s linear infinite;
-}
-
-.testimonial {
-  flex: 0 0 320px;
-  max-width: 320px;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.testimonial p {
-  margin-bottom: 1rem;
-}
-
-.testimonial .review-footer {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.testimonial .stars {
-  margin-bottom: 0.5rem;
-}
-
-.testimonial .review-name {
-  font-weight: 600;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.review-slider:hover .review-track {
-  animation-play-state: paused;
-}
-
-@media (max-width: 768px) {
-  .review-slider {
-    padding: 1rem 0; /* Zmenšený padding pre mobilné zariadenia */
-  }
-
-  .review-track {
-    gap: 12px; /* Ešte menšia medzera medzi kartami na mobiloch */
-  }
-
-  .testimonial {
-    flex: 0 0 85%; /* Karty zaberú 85% šírky obrazovky */
-    max-width: 85%; /* Zabezpečí, že karty nebudú príliš široké */
-    min-height: 280px; /* Fixná výška pre rovnaké veľkosti kariet */
-    padding: 0.8rem; /* Zmenšený padding pre lepšie zobrazenie */
-  }
-
-  .testimonial p {
-    font-size: 0.85rem; /* Ešte menšie písmo pre text recenzií */
-  }
-
-  .testimonial .review-footer {
-    gap: 0.1em; /* Menšia medzera medzi hviezdičkami a menom */
-  }
-
-  #reviews h2 {
-    font-size: 1.4rem; /* Ešte menší nadpis pre mobilné zariadenia */
-    margin-bottom: 0.8rem; /* Menší spodný margin */
-  }
-}
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const hero = document.querySelector('.hero-section');
-    const bg = hero.dataset.bg;
-    if (bg) {
-      hero.style.backgroundImage = `url('${bg}')`;
-    }
-  });
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const section = document.querySelector('.section-bg-image');
-  if(!section) return;
-
-  const page = window.location.pathname.split('/').pop().toLowerCase();
-
-  let bgUrl = '';
-
-  switch(page) {
-    case 'index.html':
-      bgUrl = 'images/pic2.jpeg';
-      break;
-    case 'pobyt.html':
-      bgUrl = 'images/dvojdomy_ai.JPEG';
-      break;
-    case 'wellness.html':
-      bgUrl = 'images/pic5.jpeg';
-      break;
-    default:
-      bgUrl = 'images/pic2.jpeg';
-  }
-
-  section.style.backgroundImage = `url('${bgUrl}')`;
-});
-</script>
-
-<!-- ===== POPUP INFO O POBYTE ===== -->
-<style>
-.zem-info-btn {
-  background-color: #3D405B;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-}
-.zem-info-btn:hover { background-color: #81B29A; }
-
-.zem-popup-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-.zem-popup-overlay.active { display: flex; }
-
-.zem-popup {
-  background: #fff;
-  max-width: 780px;
-  width: 90%;
-  padding: 30px;
-  border-radius: 12px;
-  position: relative;
-  font-size: 16px;
-}
-
-.zem-popup h2 { color: #2f6f62; margin-top: 0;}
-.zem-popup h4 { margin-top: 18px; font-size: 20px;}
-
-.zem-close {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  cursor: pointer;
-  color: #999;
-}
-
-.offers-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px 24px;
-  margin-top: 16px;
-}
-
-.offer-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  color: #333;
-}
-
-.offer-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.offer-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
-}
-
-.offer-title {
-  font-weight: 500;
-  font-size: 15.5px;
-}
-
-.offer-text small {
-  color: #6c757d;
-  font-size: 13.5px;
-}
-
-.offers-list.unavailable .offer-icon {
-  opacity: 0.35;
-  filter: grayscale(100%);
-}
-
-.offers-list.unavailable i {
-  opacity: 0.35;
-}
-
-.offer-icon {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-.offer-item i {
-  font-size: 18px;
-}
-
-.offers-list.unavailable .offer-item {
-  color: #999;
-  text-decoration: line-through;
-}
-
-.offers-list.unavailable i {
-  color: #bbb;
-}
-
-.zem-popup p {
-  font-size: 16px; /* menší odsek */
-}
-
-
-.columns .column ul li {
-  font-size: 16px; /* menší text v zozname */
-}
-
-@media (max-width: 576px) {
-  .offers-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-  .columns {
-    display: flex;
-    gap: 40px; /* vzdialenosť medzi stĺpcami */
-    flex-wrap: wrap; /* aby sa stĺpce zalamovali na menších obrazovkách */
-  }
-
-.columns .column ul {
-  list-style: none; /* odstráni pôvodné bulletky */
-  padding: 0;
-}
-
-.columns .column ul li {
-  position: relative;
-  padding-left: 25px; /* miesto pre šípku */
-  margin-bottom: 8px;
-}
-
-.columns .column ul li::before {
-  content: "-"; /* šípka ako bullet */
-  position: absolute;
-  left: 0;
-  font-size: 16px; 
-}
-
-
-  .column {
-    flex: 1; /* každý stĺpec zaberie rovnakú šírku */
-    min-width: 250px; /* zabráni príliš úzkym stĺpcom */
-  }
-</style>
-
+<!-- START POP UP TEXT -->
 <div class="zem-popup-overlay" id="zemPopup">
-  <div class="zem-popup">
-    <span class="zem-close" onclick="closeZemPopup()">&times;</span>
+    <div class="zem-popup">
+      <span class="zem-close" onclick="closeZemPopup()">&times;</span>
+      <h2>Informácie o Zem-Stay</h2>
 
-    <h2>Informácie o Zem-Stay</h2>
+    <div class="columns">
+      <div class="column">
+        <h4>Príchod</h4>
+        <ul>
+          <li>Ubytovať sa je možné od <strong>15:00</strong></li>
+          <li>Samostatný príchod pomocou kódu</li>
+        </ul>
+      </div>
 
-<div class="columns">
-  <div class="column">
-    <h4>Príchod</h4>
-    <ul>
-      <li>Ubytovať sa je možné od <strong>15:00</strong></li>
-      <li>Samostatný príchod pomocou kódu</li>
-    </ul>
-  </div>
+      <div class="column">
+        <h4>Odchod</h4>
+        <ul>
+          <li>Uvoľnenie izby do <strong>11:00</strong></li>
+          <li>Odovzdanie kľúčov do schránky</li>
+      </div>
+    </div>
 
-  <div class="column">
-    <h4>Odchod</h4>
-    <ul>
-      <li>Uvoľnenie izby do <strong>11:00</strong></li>
-      <li>Odovzdanie kľúčov do schránky</li>
+  <hr>
+
+    <div class="columns">
+      <div class="column">
+        <h4>Ako prebieha pobyt</h4>
+        <ul>
+          <li>Ubytovanie je bez obsluhy</li>
+          <li>Údržba a upratovanie počas pobytu nie je zabezpečené</li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <h4>Domáce pravidlá</h4>
+        <ul>
+          <li>Žiadne domáce zvieratá</li>
+          <li>Zákaz fajčenia v interiéri</li>
+          <li>Dodržiavanie kľudu po 22:00</li>
+        </ul>
+      </div>
+    </div>
+  <hr>
+
+    <h4 class="mt-4">Čo toto ubytovanie ponúka</h4>
+
+    <div class="offers-list">
+      <div class="offer-item">
+        <i class="bi bi-cup-hot"></i>
+        <span>Kuchyňa</span>
+      </div>
+
+      <div class="offer-item">
+        <i class="bi bi-wifi"></i>
+        <span>Wi-Fi pripojenie</span>
+      </div>
+
+      <div class="offer-item">
+        <i class="bi bi-laptop"></i>
+        <span>Pracovný priestor</span>
+      </div>
+
+      <div class="offer-item">
+        <i class="bi bi-p-square"></i>
+        <span>Bezplatné parkovanie na ulici</span>
+      </div>
+
+      <div class="offer-item">
+        <i class="bi bi-tv"></i>
+        <span>TV</span>
+      </div>
+
+    <div class="offer-item">
+      <img src="icons/terrace.svg" alt="Terasa" class="offer-icon">
+      <span>Terasa</span>
+    </div>
+
+    <div class="offer-item">
+      <i class="bi bi-camera-video"></i>
+      <span>Bezpečnostný kamerový systém</span>
+    </div>
+
+    <div class="offer-item">
+    <img src="icons/washing-machine.svg" alt="Práčka" class="offer-icon">
+        <span>Práčka</span>
+    </div>
+
+    <div class="offer-item offer-essentials">
+      <i class="bi bi-basket"></i>
+      <div class="offer-text">
+        <span>Základné vybavenie</span>
+        <small>Uteráky, posteľná bielizeň, mydlo a toaletný papier</small>
+      </div>
+    </div>
+
+    </div>
+
+  <hr>
+
+    <h4 class="mt-4 text-muted">Nie je k dispozícii</h4>
+    <div class="offers-list unavailable">
+      <div class="offer-item">
+        <img src="icons/elevator.svg" alt="Výťah" class="offer-icon">
+        <span>Výťah</span>
+      </div>
+
+      <div class="offer-item">
+        <img src="icons/smoke-detector.svg" alt="Detektor dymu" class="offer-icon">
+        <span>Detektor dymu</span>
+      </div>
+
+      <div class="offer-item">
+      <i class="bi bi-snow"></i>
+        <span>Klimatizácia</span>
+      </div>
+    </div>
   </div>
 </div>
-<hr>
-<div class="columns">
-  <div class="column">
-    <h4>Ako prebieha pobyt</h4>
-    <ul>
-      <li>Ubytovanie je bez obsluhy</li>
-      <li>Údržba a upratovanie počas pobytu nie je zabezpečené</li>
-    </ul>
-  </div>
-
-  <div class="column">
-    <h4>Domáce pravidlá</h4>
-    <ul>
-      <li>Žiadne domáce zvieratá</li>
-      <li>Zákaz fajčenia v interiéri</li>
-      <li>Dodržiavanie kľudu po 22:00</li>
-    </ul>
-  </div>
-</div>
-<hr>
-
-<h4 class="mt-4">Čo toto ubytovanie ponúka</h4>
-
-<div class="offers-list">
-  <div class="offer-item">
-    <i class="bi bi-cup-hot"></i>
-    <span>Kuchyňa</span>
-  </div>
-
-  <div class="offer-item">
-    <i class="bi bi-wifi"></i>
-    <span>Wi-Fi pripojenie</span>
-  </div>
-
-  <div class="offer-item">
-    <i class="bi bi-laptop"></i>
-    <span>Pracovný priestor</span>
-  </div>
-
-  <div class="offer-item">
-    <i class="bi bi-p-square"></i>
-    <span>Bezplatné parkovanie na ulici</span>
-  </div>
-
-  <div class="offer-item">
-    <i class="bi bi-tv"></i>
-    <span>TV</span>
-  </div>
-
-<div class="offer-item">
-  <img src="icons/terrace.svg" alt="Terasa" class="offer-icon">
-  <span>Terasa</span>
-</div>
-
-<div class="offer-item">
-  <i class="bi bi-camera-video"></i>
-  <span>Bezpečnostný kamerový systém</span>
-</div>
-
-<div class="offer-item">
-<img src="icons/washing-machine.svg" alt="Práčka" class="offer-icon">
-    <span>Práčka</span>
-</div>
-
-<div class="offer-item offer-essentials">
-  <i class="bi bi-basket"></i>
-  <div class="offer-text">
-    <span class="offer-title">Základné vybavenie</span>
-    <small>Uteráky, posteľná bielizeň, mydlo a toaletný papier</small>
-  </div>
-</div>
-
-</div>
-
-<hr>
-
-<h4 class="mt-4 text-muted">Nie je k dispozícii</h4>
-<div class="offers-list unavailable">
-  <div class="offer-item">
-    <img src="icons/elevator.svg" alt="Výťah" class="offer-icon">
-    <span>Výťah</span>
-  </div>
-
-  <div class="offer-item">
-    <img src="icons/smoke-detector.svg" alt="Detektor dymu" class="offer-icon">
-    <span>Detektor dymu</span>
-  </div>
-
-  <div class="offer-item">
-  <i class="bi bi-snow"></i>
-    <span>Klimatizácia</span>
-  </div>
-</div>
-
-</div>
-
+<!-- END POP UP TEXT -->
+ 
 <script>
+// Zem Popup Functions
 function openZemPopup() {
   document.getElementById('zemPopup').classList.add('active');
 }

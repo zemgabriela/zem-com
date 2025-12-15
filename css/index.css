@@ -11,144 +11,72 @@ padding-left: 32px;
 padding-right: 32px;
 }
 
-/* Reviews */
-.testimonial {
-min-height: 320px;
-max-width: 340px;
-margin-left: auto;
-margin-right: auto;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-text-align: center;
-padding-bottom: 1.5rem;
+.review-widget-container {
+    display: inline-block;
+ 
 }
 
-.testimonial p.fst-italic {
-flex: 1 1 auto;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-width: 100%;
-margin-bottom: 1.2rem;
-margin-top: 0.5rem;
-font-size: 1.05em;
-padding: 0 0.5rem;
-word-break: break-word;
-overflow-wrap: break-word;
+/* =========================
+   REVIEWS SLIDER – CLEAN
+   ========================= */
+
+/* Wrapper (arrows + slider) */
+.review-slider-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.testimonial .review-footer {
-margin-top: auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 0.2em;
-}
-
-.testimonial .stars {
-margin-bottom: 0.1em;
-}
-
-.testimonial .review-name {
-font-weight: 600;
-font-size: 1.1em;
-}
-
+/* Slider viewport */
 .review-slider {
   overflow: hidden;
-  position: relative;
-  width: 100%;
-  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
-  padding: 1rem 0;
-}
-
-/* Pás s recenziami */
-.review-track {
-  display: flex;
-  gap: 24px; /* Medzera medzi recenziami */
-  background-color: #f3f1de; /* Nastavenie farby pozadia pre medzery */
-  animation: scroll 20s linear infinite;
-}
-
-/* Každá recenzia */
-.testimonial {
-  flex: 0 0 320px; /* Fixná šírka recenzie */
-  max-width: 320px;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background: #f3f1de;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-/* Animácia pre nekonečný pohyb */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Zastavenie animácie pri hover */
-.review-slider:hover .review-track {
-  animation-play-state: paused;
-}
-
-#reviews {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-#reviews h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.review-slider {
-  overflow: hidden;
-  position: relative;
   width: 100%;
   max-width: 1200px;
-  background: #f3f1de;
   padding: 1rem 0;
 }
 
+.review-slider {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Track */
 .review-track {
   display: flex;
   gap: 24px;
-  animation: scroll 20s linear infinite;
+  scroll-behavior: smooth;
 }
 
+/* Review card */
 .testimonial {
   flex: 0 0 320px;
   max-width: 320px;
   min-height: 320px;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   text-align: center;
+
   background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial p {
-  margin-bottom: 1rem;
+/* Review text */
+.testimonial p.fst-italic {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.05em;
+  padding: 0 0.5rem;
+  word-break: break-word;
 }
 
+/* Footer */
 .testimonial .review-footer {
   margin-top: auto;
   display: flex;
@@ -157,71 +85,127 @@ font-size: 1.1em;
 }
 
 .testimonial .stars {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .testimonial .review-name {
   font-weight: 600;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+/* =========================
+   ARROWS
+   ========================= */
+
+.review-arrow {
+  background: #3D405B;
+  color: #fff;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.2s ease;
+  z-index: 10;
 }
 
-.review-slider:hover .review-track {
-  animation-play-state: paused;
+.review-arrow:hover {
+  background: #2c2f4a;
 }
 
-.review-widget-container {
-    display: inline-block;
-    transform: translateY(15%);  /* posun o 10% nahor */
+.review-arrow.left {
+  margin-right: 12px;
 }
 
-/* Mobile */
-@media (min-width: 768px) {
-.carousel-inner .row {
-    justify-content: center;
-    gap: 24px;
-}
-.carousel-inner .col-md-4 {
-    flex: 0 0 320px;
-    max-width: 320px;
-    padding-left: 0;
-    padding-right: 0;
-}
+.review-arrow.right {
+  margin-left: 12px;
 }
 
-@media (max-width: 768px) {
+.review-arrow:disabled {
+  background: #bfc1cc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.review-arrow:disabled:hover {
+  background: #bfc1cc;
+}
+
+/* =========================
+   DOTS
+   ========================= */
+
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.review-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.review-dot.active {
+  background: #3D405B;
+  transform: scale(1.3);
+}
+
+.review-dot:hover {
+  background: #3D405B;
+}
+
+/* =========================
+   RESPONSIVE MAX-WIDTHS
+   ========================= */
+/* Desktop: 3 full cards */
+@media (min-width: 1200px) {
   .review-slider {
-    padding: 1rem 0; /* Zmenšený padding pre mobilné zariadenia */
+    max-width: calc(320px * 3 + 24px * 2);
   }
+}
 
-  .review-track {
-    gap: 12px; /* Ešte menšia medzera medzi kartami na mobiloch */
+/* Tablet: 2 full cards */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .review-slider {
+    max-width: calc(320px * 2 + 24px);
   }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 992px) {
 
   .testimonial {
-    flex: 0 0 85%; /* Karty zaberú 85% šírky obrazovky */
-    max-width: 85%; /* Zabezpečí, že karty nebudú príliš široké */
-    min-height: 280px; /* Fixná výška pre rovnaké veľkosti kariet */
-    padding: 0.8rem; /* Zmenšený padding pre lepšie zobrazenie */
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-height: 280px;
+    padding: 0.8rem;
   }
 
-  .testimonial p {
-    font-size: 0.85rem; /* Ešte menšie písmo pre text recenzií */
+  .review-slider {
+    max-width: 320px; /* exactly 1 card width */
+    margin: 0 auto;   /* center it */
   }
 
-  .testimonial .review-footer {
-    gap: 0.1em; /* Menšia medzera medzi hviezdičkami a menom */
+  .testimonial p.fst-italic {
+    font-size: 0.85rem;
   }
 
-  #reviews h2 {
-    font-size: 1.4rem; /* Ešte menší nadpis pre mobilné zariadenia */
-    margin-bottom: 0.8rem; /* Menší spodný margin */
+  .review-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 }

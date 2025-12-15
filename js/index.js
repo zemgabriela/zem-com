@@ -32,3 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
       hero.style.backgroundImage = `url('${bg}')`;
     }
   });
+
+// Testimonials Slider Functionality
+const slider = document.querySelector('.review-slider');
+const track = document.querySelector('.review-track');
+const card = document.querySelector('.testimonial');
+const prev = document.querySelector('.review-arrow.left');
+const next = document.querySelector('.review-arrow.right');
+
+const gap = 24;
+const cardWidth = card.offsetWidth + gap;
+
+next.addEventListener('click', () => {
+  slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+});
+
+prev.addEventListener('click', () => {
+  slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+});

@@ -30,31 +30,42 @@
 
         <main>
 <!-- NAVBAR -->
-                    <style>
-              #navbar-placeholder {
-                visibility: hidden; /* hide until content is loaded */
-              }
-            </style>
-            <div id="navbar-placeholder"></div>
-            <script>
-              fetch('navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                  const navbar = document.getElementById('navbar-placeholder');
-                  navbar.innerHTML = data;
+<style>
+  /* Hide navbar placeholder until it's fully loaded */
+  #navbar-placeholder {
+    visibility: hidden;   /* invisible but occupies space */
+    background-color: #717275; /* purple fallback, matches navbar */
+  }
+</style>
 
-                  // Show navbar after loading
-                  navbar.style.visibility = 'visible';
+<div id="navbar-placeholder"></div>
 
-                  // Highlight current page
-                  const path = window.location.pathname.split('/').pop();
-                  navbar.querySelectorAll('a.nav-link').forEach(link => {
-                    if (link.getAttribute('href') === path) {
-                      link.classList.add('active');
-                    }
-                  });
-                });
-              </script>
+<script>
+  const navbarPlaceholder = document.getElementById('navbar-placeholder');
+
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      navbarPlaceholder.innerHTML = data;
+
+      // Highlight the current page in navbar
+      const path = window.location.pathname.split('/').pop();
+      navbarPlaceholder.querySelectorAll('a.nav-link').forEach(link => {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('active');
+        }
+      });
+
+      // Make navbar visible after it's fully loaded
+      navbarPlaceholder.style.visibility = 'visible';
+    })
+    .catch(err => {
+      console.error('Failed to load navbar:', err);
+      // In case of error, still show placeholder so page layout is okay
+      navbarPlaceholder.style.visibility = 'visible';
+    });
+</script>
+
 
 <!-- VITAJTE -->
         <div id="vitajte"></div>

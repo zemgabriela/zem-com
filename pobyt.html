@@ -30,21 +30,31 @@
 
         <main>
 <!-- NAVBAR -->
-        <div id="navbar-placeholder"></div>
-          <script>
-          fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('navbar-placeholder').innerHTML = data;
-              // Highlight the current page in navbar
-              const path = window.location.pathname.split('/').pop();
-              document.querySelectorAll('#navbar-placeholder a.nav-link').forEach(link => {
-                if (link.getAttribute('href') === path) {
-                  link.classList.add('active');
-                }
-              });
-            });
-          </script>
+                    <style>
+              #navbar-placeholder {
+                visibility: hidden; /* hide until content is loaded */
+              }
+            </style>
+            <div id="navbar-placeholder"></div>
+            <script>
+              fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                  const navbar = document.getElementById('navbar-placeholder');
+                  navbar.innerHTML = data;
+
+                  // Show navbar after loading
+                  navbar.style.visibility = 'visible';
+
+                  // Highlight current page
+                  const path = window.location.pathname.split('/').pop();
+                  navbar.querySelectorAll('a.nav-link').forEach(link => {
+                    if (link.getAttribute('href') === path) {
+                      link.classList.add('active');
+                    }
+                  });
+                });
+              </script>
 
 <!-- VITAJTE -->
         <div id="vitajte"></div>

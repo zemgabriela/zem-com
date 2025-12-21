@@ -178,3 +178,212 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Cennik */
+/* Button group styling */
+.button-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.button-group .zem-info-btn {
+  flex: 0 1 auto;
+}
+
+/* Wider popup for pricing table */
+.zem-popup-wider {
+  max-width: 850px;
+}
+
+/* Season sections */
+.season-section {
+  margin: 2px 0;
+}
+
+.season-dates {
+  color: #6c757d;
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.season-divider {
+  border-top: 2px solid #e0e0e0;
+}
+
+/* Pricing table - DESKTOP */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.pricing-table thead {
+  background-color: #3D405B;
+  color: white;
+}
+
+.pricing-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.pricing-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pricing-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.pricing-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.pricing-table td {
+  padding: 16px 15px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.pricing-table td strong {
+  color: #3D405B;
+  font-size: 20px;
+}
+
+/* Season cell styling */
+.season-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.season-cell i {
+  font-size: 22px;
+  color: #81B29A;
+}
+
+.season-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 16px;
+}
+
+/* MOBILE - CARD LAYOUT */
+@media (max-width: 768px) {
+  .zem-popup-wider {
+    max-width: 95%;
+  }
+  
+  .button-group {
+    gap: 15px;
+  }
+
+  /* Zmena tabuľky na karty */
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table,
+  .pricing-table tbody,
+  .pricing-table tr,
+  .pricing-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .pricing-table tr {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 18px;
+  }
+  
+  .pricing-table tr:last-child {
+    margin-bottom: 0;
+  }
+ 
+  .pricing-table tr:hover {
+    background-color: #f0f0f0;
+  }
+
+  .pricing-table td {
+    padding: 10px 0;
+    border: none;
+    text-align: left !important;
+    position: relative;
+    padding-left: 0;
+  }
+
+  .pricing-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #3D405B;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .pricing-table td:first-child {
+    padding-top: 0;
+  }
+
+  .pricing-table td:last-child {
+    padding-bottom: 12px;
+    font-size: 18px;
+  }
+
+  .season-cell i {
+    font-size: 20px;
+  }
+
+  .season-name {
+    font-size: 15px;
+  }
+
+  .pricing-table td strong {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .button-group .zem-info-btn {
+    width: 100%;
+  }
+
+  .pricing-table tr {
+    padding: 12px;
+  }
+
+  .pricing-table td:before {
+    font-size: 12px;
+  }
+
+  .season-cell {
+    gap: 10px;
+  }
+
+  .season-cell i {
+    font-size: 18px;
+  }
+
+  .season-name {
+    font-size: 14px;
+  }
+
+  .pricing-table td strong {
+    font-size: 20px;
+  }
+}

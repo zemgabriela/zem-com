@@ -153,9 +153,15 @@ document.addEventListener("DOMContentLoaded", () => {
                               Na poschodí sú umiestnené dve samostatné izby, hlavná spálňa a kúpeľňa.
                               Súčasťou ubytovania, je aj <strong>súkromná garáž pred domov a vlastná terasa.</strong></p>
 
-                            <button class="zem-info-btn" onclick="openZemPopup()">
-                              Informácie o pobyte
-                            </button>
+                              <div class="button-group">
+                                <button class="zem-info-btn" onclick="openZemPopup()">
+                                    Informácie o pobyte
+                                </button>
+                                <button class="zem-info-btn" onclick="openCennikPopup()">
+                                    Cenník
+                                </button>
+                            </div>
+                          </button>
                          </div>
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
@@ -400,7 +406,60 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 <!-- END POP UP TEXT -->
- 
+
+<!-- CENNÍK POP UP -->
+<div class="zem-popup-overlay" id="cennikPopup">
+  <div class="zem-popup zem-popup-wider">
+      <span class="zem-close" onclick="closeCennikPopup()">&times;</span>
+      <h2>Cenník</h2>
+
+      <div class="season-section">
+          <table class="pricing-table">
+              <thead>
+                  <tr>
+                      <th>Sezóna</th>
+                      <th>Mesiace</th>
+                      <th>Cena (noc/objekt)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Sezóna">
+                    <div class="season-cell">
+                      <i class="bi bi-sun"></i>
+                      <span class="season-name">Mimo-sezónne</span>
+                    </div>
+                  </td>
+                  <td data-label="Mesiace">
+                    <span class="season-dates">Apríl - November</span>
+                  </td>
+                  <td data-label="Cena">
+                    <strong>70 €</strong>
+                  </td>
+                </tr> 
+                <tr>
+                  <td data-label="Sezóna">
+                    <div class="season-cell">
+                      <i class="bi bi-snow"></i>
+                      <span class="season-name">Zimná sezóna</span>
+                    </div>
+                  </td>
+                  <td data-label="Mesiace">
+                    <span class="season-dates">December - Marec</span>
+                  </td>
+                  <td data-label="Cena">
+                    <strong>80 €</strong>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <hr class="season-divider">
+      <p><small><i>V prípade záujmu o dlhodobý podnájom nás prosím kontaktujte.</i></small></p>
+  </div>
+</div>
+<!-- END CENNIK POP UP -->
 <script>
 // Zem Popup Functions
 function openZemPopup() {
@@ -417,5 +476,21 @@ document.getElementById('zemPopup').addEventListener('click', function(e){
 });
 </script>
 
+<!-- JAVASCRIPT PRE CENNÍK POPUP -->
+<script>
+  function openCennikPopup() {
+    document.getElementById('cennikPopup').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeCennikPopup() {
+    document.getElementById('cennikPopup').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  document.getElementById('cennikPopup').addEventListener('click', function(e){
+    if(e.target === this) closeCennikPopup();
+  });
+  </script>
     </body>
 </html>

@@ -162,3 +162,124 @@ padding-right: 32px;
     text-align: center !important;
   }
 }
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+.faq-head-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h2 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.faq-header p {
+    font-size: 1.1rem;
+    color: #718096;
+}
+
+.faq-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 18px 20px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2d3748;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f7fafc;
+}
+
+.faq-question.active {
+    background-color: #f7fafc;
+    color: #C10001;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: #C10001;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #f7fafc;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+    padding: 0 20px 18px 20px;
+}
+
+.faq-answer p {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.faq-answer strong {
+    color: #C10001;
+}
+
+@media (max-width: 768px) {
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-header h2 {
+        font-size: 2rem;
+    }
+
+    .faq-question {
+        font-size: 1rem;
+        padding: 15px 18px;
+    }
+
+    .faq-answer.active {
+        padding: 0 18px 15px 18px;
+    }
+}

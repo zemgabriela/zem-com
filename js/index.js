@@ -50,3 +50,4 @@ next.addEventListener('click', () => {
 prev.addEventListener('click', () => {
   slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
 });
+

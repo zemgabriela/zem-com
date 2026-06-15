@@ -1,132 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="sk">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <meta name="description" content="">
+        <meta name="description" content="Zem-Zen – privátne wellness centrum v Oravskej Porube. Sauny, vírivka a dokonalý oddych v súkromí.">
         <meta name="author" content="">
+        <title>Zem-Com | Zem-Zen Wellness</title>
 
-        <title>Zem-Com</title>
-
-<!-- CSS FILES -->                
+        <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-icons.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/wellness.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
     </head>
 
-<!-- DOTS IN REVIEWS -->                  
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  const slider = document.querySelector('.review-slider');
-  const cards = document.querySelectorAll('.testimonial');
-  const dotsContainer = document.querySelector('.review-dots');
-  const prev = document.querySelector('.review-arrow.left');
-  const next = document.querySelector('.review-arrow.right');
-
-  if (!slider || !cards.length) return;
-
-  const gap = 24;
-  const cardWidth = cards[0].offsetWidth + gap;
-
-  function cardsPerPage() {
-    if (window.innerWidth >= 992) return 3;
-    if (window.innerWidth >= 768) return 2;
-    return 1;
-  }
-
-  let currentPage = 0;
-
-  function totalPages() {
-    return Math.ceil(cards.length / cardsPerPage());
-  }
-
-  function update() {
-    slider.scrollTo({
-      left: currentPage * cardWidth * cardsPerPage(),
-      behavior: 'smooth'
-    });
-
-    document.querySelectorAll('.review-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentPage);
-    });
-  }
-
-  /* Build dots per PAGE */
-  function buildDots() {
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalPages(); i++) {
-      const dot = document.createElement('div');
-      dot.className = 'review-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => {
-        currentPage = i;
-        update();
-      });
-      dotsContainer.appendChild(dot);
-    }
-  }
-
-  prev.addEventListener('click', () => {
-    if (currentPage > 0) {
-      currentPage--;
-      update();
-    }
-  });
-
-  next.addEventListener('click', () => {
-    if (currentPage < totalPages() - 1) {
-      currentPage++;
-      update();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    currentPage = 0;
-    buildDots();
-    update();
-  });
-
-  buildDots();
-  update();
-
-});
-</script>
-<!-- DISABLE ARROWS -->     
-<script>
-function update() {
-  const visibleWidth = slider.offsetWidth;
-  const pageWidth = cardWidth * cardsPerPage() - gap;
-  const offset = (visibleWidth - pageWidth) / 2;
-
-  slider.scrollTo({
-    left: currentPage * cardWidth * cardsPerPage() - offset,
-    behavior: 'smooth'
-  });
-
-  /* Update dots */
-  document.querySelectorAll('.review-dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentPage);
-  });
-
-  /* Disable arrows at edges */
-  prev.disabled = currentPage === 0;
-  next.disabled = currentPage === totalPages() - 1;
-}
-</script>
-
-    <body>
+    <body class="index">
         <main>
+
 <!-- NAVBAR -->
- <nav class="navbar navbar-expand-lg">                
+            <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand d-flex align-items-center" href="index.html">
                         <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Zem-Com">
-                        <span class="navbar-brand-text" >
+                        <span class="navbar-brand-text">
                             Zem-Com
                             <small></small>
                         </span>
@@ -135,56 +35,33 @@ function update() {
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
+
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Domov</a>
+                                <a class="nav-link active" href="index.html">Domov</a>
                             </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link" href="wellness.html">Wellness</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="pobyt.html">Pobyt</a>
-                            </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="galeria.html">Galéria</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="kontakt.html">Kontakt</a>
                             </li>
-
                         </ul>
-
-                        
                     </div>
                 </div>
             </nav>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const current = location.pathname.split("/").pop() || "index.html";
+<!-- HERO SECTION -->
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1" style="background-image: url('images/pic5.jpeg');">
+                <div class="section-overlay"></div>
 
-  document.querySelectorAll(".navbar .nav-link").forEach(link => {
-    if (link.getAttribute("href") === current) {
-      link.classList.add("active");
-    }
-  });
-});
-</script>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+                </svg>
 
-
-<!-- VITAJTE <- it is not loaded from vitajte.html!!! -->
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1" data-bg="images/pic5.jpeg">  
-              <div class="section-overlay"></div>
-                <!--TOTO JE TEN SQUIGLI VRCH-->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
                 <div class="container">
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-lg-6 col-12 mb-5 mb-lg-0">
                             <h2 class="text-white">Vitajte v</h2>
                             <h1 class="cd-headline fade-words text-white mb-4 pb-2">
@@ -192,49 +69,72 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <span class="cd-words-wrapper">
                                     <b class="is-visible">Com</b>
                                     <b>Zen</b>
-                                    <b>Stay</b>
                                 </span>
                             </h1>
+                            <p class="text-white mb-2" style="font-size: 1.1rem; opacity: 0.9;">Privátne wellness centrum</p>
+                            <script id="anywhere_book_now_script"
+                                src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js">
+                            </script>
+                            <button id="Anywhere_button_iframe"
+                                    class="anywhere-book-now-button custom-btn"
+                                    data-booking-url="https://zemzen.setmore.com/book"
+                                    data-new-tab="false">
+                                Rezervovať teraz
+                            </button>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="ratio ratio-16x9">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/UYVAYaz5xLM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/UYVAYaz5xLM" title="Zem-Zen Wellness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
-            </section>
 
-<!-- ZEM COM SECTION -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+                </svg>
+            </section>
+<br>
+<section class="section-nav">
+    <div class="section-nav-inner">
+        <a href="#section_2">O Zem-Zen</a>
+        <a href="#section_3">Priestory</a>
+        <a href="#section_4">Balíčky</a>
+        <a href="#section_5">Rezervácia</a>
+        <a href="#faq-section">FAQ</a>
+        <a href="#review-slider-section">Recenzie</a>
+    </div>
+</section>
+<!-- O ZEM-ZEN SECTION -->
             <section class="about-section section-padding" id="section_2">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-12 text-center">
-                            <h2 class="mb-lg-5 mb-4">Jedno miesto. Jeden pokoj.</h2>
+                            <h2 class="mb-lg-5 mb-4">Váš oáza pokoja na Orave</h2>
                         </div>
 
                         <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
-                            <h3 class="mb-3">O Zem-Com</h3>
-                            <p><strong>Zem-Com</strong> predstavuje víziu moderného komplexu, ktoré <strong>spája bývanie a relax na jednom mieste</strong> – či už ide o dlhodobé bývanie, víkendový oddych alebo chvíle regenerácie.</p>
-                            <p>Aktúalne sú jeho súčasťou<strong> moderné dvojdomy Zem-Stay a privátne wellness centrum Zem-Zen</strong>. Víziou Zem-Com je vytvoriť miesto, kde ľudia nemusia nikam odchádzať, aby si dopriali pokoj, komfort a súkromie. </p>
+                            <h3 class="mb-3">O Zem-Zen</h3>
+                            <p><strong>Zem-Zen</strong> je privátne wellness centrum, kde si v úplnom súkromí môžete dopriať zaslúžený oddych.</p>
+                            <p>Wellness je určený pre 2 až 4 osoby a funguje na objednávku – <strong>každá rezervácia je súkromná </strong>, počas Vašej návštevy nebudú v priestore žiadni iní hostia.</p>
+                            <p>Ponúkame viacero tematických balíčkov, či už túžite po romantike, regenerácii alebo chvíľke pokoja s rodinou či priateľmi.</p>
                         </div>
-                      
 
-                      <div class="col-lg-7 col-12">
-                        <div class="row">
-                          <div class="col-12 col-md-6 mb-4 mt-4">
-                            <div class="member-block mt-2">
-                                <div class="member-block-image-wrap">
-                                    <img src="images/pic1.jpeg" class="member-block-image img-fluid" alt="">   
+                        <div class="col-lg-7 col-12">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mb-4 mt-4">
+                                    <div class="member-block mt-2">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/pic1.jpeg" class="member-block-image img-fluid" alt="Vírivka Zem-Zen">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 mb-4 mt-4">
-                            <div class="member-block mt-2">
-                                <div class="member-block-image-wrap">
-                                    <img src="images/dvojdomy_ai.JPEG" class="member-block-image img-fluid" alt="" style="object-fit: cover; object-position: bottom; height: 250px; width: 100%;">
+                                <div class="col-12 col-md-6 mb-4 mt-4">
+                                    <div class="member-block mt-2">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/pic5.jpeg" class="member-block-image img-fluid" alt="Oddychová zóna Zem-Zen">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -243,261 +143,391 @@ document.addEventListener("DOMContentLoaded", () => {
             </section>
 
 <!-- SVG DIVIDER -->
-            <section class="section-bg-image">
-                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
-
+            <section class="section-bg-image" style="background-image: url('images/pic2.jpeg');">
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
                 <div class="container">
                     <div class="row">
-                        <!--NAJSMUTNEJŠIA VEC ČO SOM KEDY UROBIL XDDDDDD-->
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
-
+                        <br><br><br><br><br><br>
                     </div>
                 </div>
-
-                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
             </section>
 
-<!-- ZEM COM / ZEM-STAY / ZEN SECTION -->
+<!-- WELLNESS PRIESTOR SECTION -->
 <section class="membership-section section-padding" id="section_3">
-  <div class="container">
-
-    <!-- ROW 1: Zem-Stay -->
-    <div class="row align-items-start mb-5">
-      <!-- Text -->
-      <div class="col-lg-5 col-12">
-        <h3 class="mb-3">Ubytovanie</h3>
-        <p>V <strong>Zem-Stay</strong> Vám ponúkame ubytovanie v moderných dvojdomoch. Môžete si oddýchnuť obklopení prírodou ďaleko od mestského ruchu.</p>
-        <p>Sme ideálnou voľbou pre hostí, ktorí očakávajú moderný dizajn, kvalitu a súkromie. Lokalita zaručuje ticho, zatiaľ čo moderná architektúra a nadštandardné vybavenie interiérov spĺňajú všetky požiadavky na komfort.</p>
-      </div>
-
-      <!-- Photos -->
-      <div class="col-lg-7 col-12">
+    <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6 mb-4 mt-5">
-            <div class="member-block">
-              <div class="member-block-image-wrap">
-                <img src="images/dvojdomy_ai.JPEG" class="member-block-image img-fluid" alt="">
-              </div>
+            <!-- Text -->
+            <div class="col-lg-5 col-12 mb-4 mb-lg-0 text-lg-start text-center ps-lg-5 pe-lg-5 px-3 order-1 order-lg-2">
+                <h3 class="mb-3">Čo nájdete u nás</h3>
+                <br>
+                <p>Zem-Zen je navrhnutý pre maximálny komfort a relaxáciu. Vírivka s hydromasážnymi tryskami, viacero typov sáun a tichá oddychová zóna – všetko pre Vás a len pre Vás.</p>
+                <p>Nájdete u nás štyri druhy sáun – infra, bylinnú, parnú a fínsku. Súčasťou wellness zóny je aj priestranná vírivka, oddychová miestnosť s pohodlnými ležadlami a relaxačná hudba pre dokonalú atmosféru.</p>
+                <p>Naše priestory sú starostlivo udržiavané, útulne zariadené a pripravené na každú návštevu.</p>
             </div>
-          </div>
-          <div class="col-12 col-md-6 mb-4 mt-5">
-            <div class="member-block">
-              <div class="member-block-image-wrap">
-                <img src="images/dvojdomy_zvrchu.JPEG" class="member-block-image img-fluid" alt="">
-              </div>
+
+            <!-- Obrázky -->
+            <div class="col-lg-7 col-12 order-2 order-lg-1">
+                <div class="row">
+                    <div class="col-md-6 col-12 mb-2">
+                        <div class="member-block">
+                            <div class="member-block-image-wrap">
+                                <img src="images/pic8.jpeg" class="member-block-image img-fluid" alt="Vírivka s hydromasážnymi tryskami">
+                                <div class="hover-text">
+                                    <p class="fw-bold">Vírivka s hydromasážnymi tryskami</p>
+                                    <span>Naša vírivka poskytne dokonalý relax v teplých bublinách, ktoré uvoľnia celé telo, zmiernia stres a zlepšia cirkuláciu krvi.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mb-2">
+                        <div class="member-block">
+                            <div class="member-block-image-wrap">
+                                <img src="images/pic9.jpeg" class="member-block-image img-fluid" alt="Sauny">
+                                <div class="hover-text">
+                                    <p class="fw-bold">Sauny</p>
+                                    <span>Vyberte si z našich typov sáun podľa Vašej potreby – bylinková, parná, fínska a infračervená sauna pre každú príležitosť.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="member-block">
+                            <div class="member-block-image-wrap">
+                                <img src="images/pic10.jpeg" class="member-block-image img-fluid" alt="Oddychová zóna" style="object-fit: cover; height: 350px; width: 100%;">
+                                <div class="hover-text">
+                                    <p class="fw-bold">Oddychová zóna</p>
+                                    <span>Pohodlné ležadlá, jemné osvetlenie a tichá atmosféra – ideálne podmienky na úplné uvoľnenie.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-
-    <!-- ROW 2: Zem-Zen -->
-    <div class="row align-items-start mb-5">
-      <!-- Text -->
-      <div class="col-lg-5 col-12">
-        <h3 class="mb-3">Wellness centrum</h3>
-        <p><strong>Zem-Zen</strong> je privátne wellness centrum, kde si v úplnom súkromí môžete dopriať zaslúžený oddych. Nájdete u nás štyri druhy sáun – infra, bylinnú, parnú a fínsku, vírivku a oddychovú zónu.</p>
-        <p>Ponúkame viacero tematických balíčkov, či už túžite po romantike, regenerácii alebo chvíľke pokoja s rodinou či priateľmi.</p>
-      </div>
-
-      <!-- Photos -->
-      <div class="col-lg-7 col-12">
-        <div class="row">
-          <div class="col-12 col-md-6 mb-4 mt-5">
-            <div class="member-block">
-              <div class="member-block-image-wrap">
-                <img src="images/pic1.jpeg" class="member-block-image img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 mb-4 mt-5">
-            <div class="member-block">
-              <div class="member-block-image-wrap">
-                <img src="images/pic7.jpeg" class="member-block-image img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </section>
 
-
-
-<!-- REVIEWS SECTION -->
-    <section class="events-section section-bg section-padding" id="review-slider-section">
-        <div class="container px-4 text-center">
-            <h2 class="mb-5">Čo o nás hovoria naši zákazníci</h2>
-
-            <!-- Testimonials Slider -->
-            <div class="review-slider-wrapper mt-4">
-
-            <button class="review-arrow left" aria-label="Previous review">
-              &#10094;
-            </button>    
-<!-- Recenzie -->
-              <div class="review-slider">
-                  <div class="review-track">        
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Veľmi pekné to tam máte, útulné, hezké. Človek sa tam dobre cíti."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Emka</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Bolo nám krásne, určite ešte prídeme."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                        <div class="review-name fw-semibold">Marika</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Byli jsme moc spokojený určitě to nebyla poslední návšteva."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Nikolette</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Wellness bol super. Veľmi príjemné priestory na oddýchnutie či už lehátka, sauny aj veľká vírivka. Pekné prostredie na oddych s krásnou vôňou a kľudom."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Janko</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Cítili sme sa u vás veľmi príjemne, wellness je krásny, moderný a príjemne zariadený. Určite sa ku vám ešte vrátime a budeme vás odporúčať aj našim známim."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Mária</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Všetko bolo super, odišli sme veľmi spokojní a neboli sme u vás naposledy."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Marika</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Wellness bol výborný, krásne to je spravené. Teším sa na ďaľšiu návštevu."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Mima</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Cítili sme sa skvelo, akurát možno ochladzovacia kaďa nám chýbala. Ale dali sme si studenú sprchu."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Barbora</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Wellness bol super. A určite sa ku vám ešte vrátime."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Julka</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Vynikajúce odporúčam maximálne súkromie."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Johni</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Wellness bol úžasný, príjemne sme si oddýchli."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Paťka</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Všetko bolo super, veľmi sme si to užili a ďakujeme určite sa radi vrátime."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Katka</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Wellness s príjemnou atmosférou a maximálnym súkromím. Priestory sú útulné, čisté a starostlivo udržiavané. Radi sa sem opäť vrátime a s radosťou odporúčame ďalej."</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Marika</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Sme nadmieru spokojní. Najlepší wellness na akom sme boli :) súkromie, skvelá vírivka, vybavenie. Oddýchli sme si a prídeme aj nabudúce 🫶"</p>
-                      <div class="review-footer">
-                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <div class="review-name fw-semibold">Jannka</div>
-                      </div>
-                    </div>
-                    <div class="testimonial p-4 text-center shadow-sm bg-white rounded h-100">
-                      <p class="mb-3 fst-italic">"Ďakujeme veľmi veľmi pekne. Veľmi sme si oddýchli a určite ešte prídeme!"</p>
-                      <div class="review-footer">
-                    <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="review-name fw-semibold">Veronika</div>
-                    </div>
-                    </div>
-                  </div>
-              </div>
-            <button class="review-arrow right" aria-label="Next review">
-              &#10095;
-            </button>
-           </div>
-           <div class="review-dots" aria-label="Review navigation"></div>
-           <!-- Tlačidlo pre zanechanie recenzie -->
-        <a
-          href="https://g.page/r/CW4TWy59JA4YEAE/review"
-          target="_blank"
-          rel="noopener"
-          class="google-review-btn mt-4"
-        >
-          💛 Zanechať recenziu na Google
-        </a>
-</div>
+<!-- SVG DIVIDER -->
+<section class="section-bg-image" style="background-image: url('images/pic2.jpeg');">
+    <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+    <div class="container">
+        <div class="row">
+            <br><br><br><br><br><br>
         </div>
+    </div>
+    <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255,255,255,1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+</section>
+<!-- BALÍČKY SECTION -->
+ 
+            <section class="about-section section-padding" id="section_4">
+             <div class="container">
+                <div class="row">
 
-      </section>
+                  <!-- Text napravo -->
+                <div class="col-lg-5 col-12 mb-4 mb-lg-0 text-lg-start text-center ps-lg-5 pe-lg-5 px-3 order-1 order-lg-2">
+                    
+                    <h3 class="mb-3">Vyberte si svoj relax</h3>
+                    <br>
+                    <p>Pozrite si našu ponuku a nájdite ten pravý relax – presne podľa seba.
+                      Naše balíčky sú navrhnuté tak, aby Vám poskytli maximálny komfort – či už túžite po luxusnom rande, regenerácii po náročnom dni, alebo len po tichu a teple bez rušivých vplyvov.</p>
+                    <p>Stačí si vybrať a <strong style="color: #C10001;">nechať sa rozmaznávať</strong>.</p>
+                  </div>
 
-           <!-- Google Review Widget
-            <div class="review-widget-container">
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-d5562cf0-0af4-4de3-9d86-c94a225a161e" data-elfsight-app-lazy></div> 
-            </div> -->
+                  <!-- Nadpis presunutý do ľavého textového stĺpca pre lepšie zarovnanie -->
+                  <!-- Obrázky naľavo -->
+                  <div class="col-lg-7 col-12 order-2 order-lg-1">
+                    <h3 class="mb-10 text-center">Zem-Zen Balíčky</h3>
+                    <br>
+                    <div class="row">
+                      <!-- Klasik -->
+                      <div class="col-md-6 col-12 mb-2">
+                        <div class="member-block">
+                          <div class="member-block-image-wrap">
+                            <img src="images/klasik.png" class="member-block-image img-fluid" alt="Klasik">
+                            <div class="hover-text">
+                              <p class="text head fw-bold">Klasik</p>
+                              <span><em>Ideálny pre každého, kto si chce v pokoji oddýchnuť a načerpať novú energiu.</em><br><br>
+                                Balík Klasik zahŕňa úplné súkromie, vírivku, 2 druhy sáun (fínsku a infra), oddychovú zónu a vlastnú hudbu.</span>
+                            </div>
+                            <div class="price">15€</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Exkluzív -->
+                      <div class="col-md-6 col-12 mb-2">
+                        <div class="member-block">
+                          <div class="member-block-image-wrap">
+                            <img src="images/exklusive.png" class="member-block-image img-fluid" alt="Exkluzív">
+                            <div class="hover-text">
+                              <p class="text head fw-bold">Exkluzív</p>
+                              <span><em>Vhodný pre tých, ktorí si radi doprajú niečo navyše.</em><br><br>
+                                Balík Exkluzív obsahuje všetko z balíka Klasik, doplnené o sviečky, šampanské (alko alebo nealko) a bonboniéru pre dokonalý zážitok.</span>
+                            </div>
+                          <div class="price">30€</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-end">
+                    <small class="text-muted">
+                      Ceny sú uvádzané na osobu.
+                    </small>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+<!-- REZERVÁCIA SECTION -->
+            <section class="events-section section-padding section-bg" id="section_5">
+                <div class="container px-4">
+                    <h2 class="text-center mb-5">Rezervujte si svoj wellness zážitok</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10 col-12">
+                            <div class="d-flex flex-column align-items-center">
+                                <iframe src="https://zemzen.setmore.com/book" width="100%" height="600" frameborder="0" style="border-radius:16px; min-height:400px; max-width:600px; margin:auto;" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!-- FAQ SECTION -->
+            <section class="faq-section" id="faq-section">
+                <div class="faq-head-container">
+                    <div class="faq-header">
+                        <h2>Často kladené otázky</h2>
+                        <p>Nájdite odpovede na najčastejšie otázky o našom wellness centre</p>
+                    </div>
+
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Máte u Vás k dispozícii kaďu/ochladzovací bazén?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Kaďu u nás momentálne nemáme. Súčasťou wellness je však sprcha, ktorú môžete využiť na ochladenie po saunovaní.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Koľko a aké sauny môžem počas pobytu využívať?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Na výber máte dve z troch sáun. Vybrať si môžete medzi fínskou saunou, infra saunou a bylinnou/parnou saunou.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Je možné si rezervovať aj dlhší wellness pobyt?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Áno, okrem štandardného dvojhodinového pobytu je po individuálnej dohode možné rezervovať aj trojhodinový wellness.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Musím si so sebou priniesť vlastné uteráky?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Uteráky a základné vybavenie sú pre hostí k dispozícii priamo vo wellness centre.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Je wellness priestor počas pobytu súkromný?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Áno, wellness priestor je počas celej rezervácie plne súkromný a vyhradený len pre Vás.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Akým spôsobom je možné u Vás zaplatiť?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Platba za wellness je možná v hotovosti alebo kartou priamo na mieste.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Dá sa wellness rezervovať aj mimo rezervačného systému?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Áno, v prípade záujmu o iný čas, než je dostupný v rezervačnom systéme, nás môžete kontaktovať a dohodnúť sa individuálne.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Ponúkate darčekové poukážky na wellness?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Áno, ponúkame darčekové poukážky. Vyzdvihnúť si ich môžete osobne alebo Vám ich vieme zaslať poštou.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!-- RECENZIE SECTION -->
+            <section class="events-section section-bg section-padding" id="review-slider-section">
+                <div class="container px-4 text-center">
+                    <h2 class="mb-5">Čo o nás hovoria naši zákazníci</h2>
+
+                    <div class="review-slider-wrapper mt-4">
+                        <button class="review-arrow left" aria-label="Previous review">&#10094;</button>
+
+                        <div class="review-slider">
+                            <div class="review-track">
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Veľmi pekné to tam máte, útulné, hezké. Človek sa tam dobre cíti."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Emka</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Bolo nám krásne, určite ešte prídeme."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                                        <div class="review-name fw-semibold">Marika</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Byli jsme moc spokojený určitě to nebyla poslední návšteva."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Nikolette</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Wellness bol super. Veľmi príjemné priestory na oddýchnutie či už lehátka, sauny aj veľká vírivka. Pekné prostredie na oddych s krásnou vôňou a kľudom."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Janko</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Cítili sme sa u vás veľmi príjemne, wellness je krásny, moderný a príjemne zariadený. Určite sa ku vám ešte vrátime."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Mária</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Všetko bolo super, odišli sme veľmi spokojní a neboli sme u vás naposledy."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Marika</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Wellness bol výborný, krásne to je spravené. Teším sa na ďaľšiu návštevu."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Mima</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Cítili sme sa skvelo. Dali sme si studenú sprchu a bolo to úžasné."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Barbora</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Wellness bol super. A určite sa ku vám ešte vrátime."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Julka</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Vynikajúce, odporúčam. Maximálne súkromie."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Johni</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Wellness bol úžasný, príjemne sme si oddýchli."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Paťka</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Wellness s príjemnou atmosférou a maximálnym súkromím. Priestory sú útulné, čisté a starostlivo udržiavané. Radi sa sem opäť vrátime."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Marika</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Sme nadmieru spokojní. Najlepší wellness na akom sme boli 🫶 súkromie, skvelá vírivka, vybavenie. Oddýchli sme si a prídeme aj nabudúce."</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Jannka</div>
+                                    </div>
+                                </div>
+                                <div class="testimonial p-4 text-center shadow-sm bg-white rounded">
+                                    <p class="mb-3 fst-italic">"Ďakujeme veľmi veľmi pekne. Veľmi sme si oddýchli a určite ešte prídeme!"</p>
+                                    <div class="review-footer">
+                                        <div class="text-warning stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div class="review-name fw-semibold">Veronika</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="review-arrow right" aria-label="Next review">&#10095;</button>
+                    </div>
+
+                    <div class="review-dots" aria-label="Review navigation"></div>
+
+                    <a href="https://g.page/r/CW4TWy59JA4YEAE/review" target="_blank" rel="noopener" class="google-review-btn mt-4">
+                        💛 Zanechať recenziu na Google
+                    </a>
+                </div>
+            </section>
+
 <!-- KONTAKT SECTION -->
-      <div id="kontaktujte-nas"></div>
-      <script>
-        fetch('kontakt_sekcia.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('kontaktujte-nas').innerHTML = data;
-          });
-      </script>
+            <div id="kontaktujte-nas"></div>
+            <script>
+                fetch('kontakt_sekcia.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('kontaktujte-nas').innerHTML = data;
+                    });
+            </script>
 
-      </main>
+        </main>
+
 <!-- FOOTER -->
         <div id="footer-placeholder"></div>
         <script>
-          fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('footer-placeholder').innerHTML = data;
-            });
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
         </script>
-
 
 <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
@@ -506,12 +536,104 @@ document.addEventListener("DOMContentLoaded", () => {
         <script src="js/animated-headline.js"></script>
         <script src="js/modernizr.js"></script>
         <script src="js/custom.js"></script>
-        <script src="js/index.js"></script>
 
-<!-- SETMORE -->
-<script 
-    id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js">
+        <!-- Reviews slider script -->
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.review-slider');
+            const cards = document.querySelectorAll('.testimonial');
+            const dotsContainer = document.querySelector('.review-dots');
+            const prev = document.querySelector('.review-arrow.left');
+            const next = document.querySelector('.review-arrow.right');
+
+            if (!slider || !cards.length) return;
+
+            const gap = 24;
+            const cardWidth = cards[0].offsetWidth + gap;
+
+            function cardsPerPage() {
+                if (window.innerWidth >= 992) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+
+            let currentPage = 0;
+
+            function totalPages() {
+                return Math.ceil(cards.length / cardsPerPage());
+            }
+
+            function update() {
+                slider.scrollTo({ left: currentPage * cardWidth * cardsPerPage(), behavior: 'smooth' });
+                document.querySelectorAll('.review-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentPage);
+                });
+                prev.disabled = currentPage === 0;
+                next.disabled = currentPage === totalPages() - 1;
+            }
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalPages(); i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => { currentPage = i; update(); });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            prev.addEventListener('click', () => { if (currentPage > 0) { currentPage--; update(); } });
+            next.addEventListener('click', () => { if (currentPage < totalPages() - 1) { currentPage++; update(); } });
+            window.addEventListener('resize', () => { currentPage = 0; buildDots(); update(); });
+
+            buildDots();
+            update();
+        });
+        </script>
+
+        <!-- FAQ script -->
+        <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.parentElement.querySelector('.faq-answer');
+                const isActive = button.classList.contains('active');
+                document.querySelectorAll('.faq-question').forEach(b => {
+                    b.classList.remove('active');
+                    b.parentElement.querySelector('.faq-answer').classList.remove('active');
+                });
+                if (!isActive) {
+                    button.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+        </script>
+
+        <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script>
+        <script>
+const links = document.querySelectorAll(".section-nav-inner a");
+const sections = [...links].map(link => document.querySelector(link.getAttribute("href")));
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            links.forEach(link => link.classList.remove("active"));
+
+            const activeLink = document.querySelector(
+                `.section-nav-inner a[href="#${entry.target.id}"]`
+            );
+
+            if (activeLink) activeLink.classList.add("active");
+        }
+    });
+}, {
+    root: null,
+    threshold: 0.4, // adjust sensitivity
+});
+
+sections.forEach(section => {
+    if (section) observer.observe(section);
+});
 </script>
     </body>
-
 </html>

@@ -190,49 +190,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
-
-                        <div id="vitajte"></div>
-                        <script>
-                            async function loadVitajte() {
-                                const container = document.getElementById('vitajte');
-                                const html = await fetch('vitajte.html').then(r => r.text());
-                                container.innerHTML = html;
-
-                                // Dynamically update title based on the page
-                                const title = document.getElementById('vitajte-title');
-                                const h2 = document.getElementById('vitajte-h2');
-                                const page = window.location.pathname.split('/').pop().toLowerCase();
-
-                                switch (page) {
-
-                                    case "kontakt.html":
-                                      title.innerHTML = 'Kontaktujte&nbsp;<span style="color:#F2CC8F;"> Nás</span>';
-                                      h2.style.display = "none";
-                                      break;
-                                            }
-                            // Dynamically change hero background
-            const hero = container.querySelector('.hero-section');
-            if(hero) {
-                let bgUrl = '';
-                switch (page) {
-                    case "pobyt.html":
-                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
-                        break;
-                    case "wellness.html":
-                        bgUrl = 'images/pic5.jpeg';
-                        break;
-                    case "galeria.html":
-                        bgUrl = 'images/dvojdomy_zvrchu.JPEG';
-                        break;
-                    default:
-                        bgUrl = 'images/pic5.jpeg';
-                }
-                hero.style.backgroundImage = `url('${bgUrl}')`;
-            }}
-
-                            loadVitajte();
-                        </script>
+<!-- HERO -->
+            <section class="hero-section d-flex justify-content-center align-items-center" style="background-image: url('images/pic5.jpeg');">
+                <div class="section-overlay"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L0,0Z"></path></svg>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h1 id="contact-title" style="color:#F4F1DE; font-size:3rem; font-weight:700;">Kontaktujte&nbsp;<span style="color:#F2CC8F;"> Nás</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L0,320Z"></path></svg>
+            </section>
 
 
 <section class="team-section-white container mb-4 py-5">

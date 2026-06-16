@@ -97,16 +97,16 @@
 <br>
 <section class="section-nav">
     <div class="section-nav-inner">
-        <a href="#section_2">O Zem-Zen</a>
-        <a href="#section_3">Priestory</a>
-        <a href="#section_4">Balíčky</a>
-        <a href="#section_5">Rezervácia</a>
-        <a href="#faq-section">FAQ</a>
-        <a href="#review-slider-section">Recenzie</a>
+        <a href="#zem-zen">O Zem-Zen</a>
+        <a href="#priestory">Priestory</a>
+        <a href="#balicky">Balíčky</a>
+        <a href="#rezervacia">Rezervácia</a>
+        <a href="#faq">FAQ</a>
+        <a href="#recenzie">Recenzie</a>
     </div>
 </section>
 <!-- O ZEM-ZEN SECTION -->
-            <section class="about-section section-padding" id="section_2">
+            <section class="about-section section-padding" id="zem-zen">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-12 text-center">
@@ -154,7 +154,7 @@
             </section>
 
 <!-- WELLNESS PRIESTOR SECTION -->
-<section class="membership-section section-padding" id="section_3">
+<section class="membership-section section-padding" id="priestory">
     <div class="container">
         <div class="row">
             <!-- Text -->
@@ -220,7 +220,7 @@
 </section>
 <!-- BALÍČKY SECTION -->
  
-            <section class="about-section section-padding" id="section_4">
+            <section class="about-section section-padding" id="balicky">
              <div class="container">
                 <div class="row">
 
@@ -280,7 +280,7 @@
             </section>
 
 <!-- REZERVÁCIA SECTION -->
-            <section class="events-section section-padding section-bg" id="section_5">
+            <section class="events-section section-padding section-bg" id="rezervacia">
                 <div class="container px-4">
                     <h2 class="text-center mb-5">Rezervujte si svoj wellness zážitok</h2>
                     <div class="row justify-content-center">
@@ -294,7 +294,7 @@
             </section>
 
 <!-- FAQ SECTION -->
-            <section class="faq-section" id="faq-section">
+            <section class="faq-section" id="faq">
                 <div class="faq-head-container">
                     <div class="faq-header">
                         <h2>Často kladené otázky</h2>
@@ -386,7 +386,7 @@
             </section>
 
 <!-- RECENZIE SECTION -->
-            <section class="events-section section-bg section-padding" id="review-slider-section">
+            <section class="events-section section-bg section-padding" id="recenzie">
                 <div class="container px-4 text-center">
                     <h2 class="mb-5">Čo o nás hovoria naši zákazníci</h2>
 
@@ -502,10 +502,51 @@
                     <div class="review-dots" aria-label="Review navigation"></div>
 
                     <a href="https://g.page/r/CW4TWy59JA4YEAE/review" target="_blank" rel="noopener" class="google-review-btn mt-4">
-                        💛 Zanechať recenziu na Google
+                        <i class="bi bi-google"></i>
+                        Zanechať recenziu
+                        <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </div>
             </section>
+
+            <style>
+                .google-review-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.6rem;
+                    padding: 0.9rem 1.8rem;
+                    background: linear-gradient(135deg, #4285F4, #34A853 50%, #FBBC05 75%, #EA4335);
+                    background-size: 250% 250%;
+                    background-position: 0% 50%;
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 1.05rem;
+                    text-decoration: none;
+                    border-radius: 50px;
+                    box-shadow: 0 8px 20px rgba(66, 133, 244, 0.25);
+                    transition: background-position 0.5s ease, transform 0.25s ease, box-shadow 0.25s ease;
+                }
+                .google-review-btn:hover {
+                    background-position: 100% 50%;
+                    transform: translateY(-3px);
+                    box-shadow: 0 12px 28px rgba(66, 133, 244, 0.35);
+                    color: #fff;
+                }
+                .google-review-btn:active {
+                    transform: translateY(-1px);
+                }
+                .google-review-btn i.bi-google {
+                    font-size: 1.1rem;
+                }
+                .google-review-btn i.bi-arrow-up-right {
+                    font-size: 0.9rem;
+                    opacity: 0.85;
+                    transition: transform 0.25s ease;
+                }
+                .google-review-btn:hover i.bi-arrow-up-right {
+                    transform: translate(2px, -2px);
+                }
+            </style>
 
 <!-- KONTAKT SECTION -->
             <div id="kontaktujte-nas"></div>
